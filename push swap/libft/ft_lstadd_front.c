@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:02:57 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/18 17:15:37 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/24 22:21:47 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
-// circular double linked list
-typedef struct s_stack
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
-
-#endif
-void	ft_error(void);
-int	ft_atoi2(const char *nptr);
-void ft_parsing(char **av);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
+/* int main()
+{
+	t_list *node1 = ft_lstnew(ft_strdup("node1"));
+	t_list *node2 = ft_lstnew(ft_strdup("node2"));
+	ft_lstadd_front(&node2, node1);
+	printf("%s\n", (char *)(ft_lstlast(node1)->content));
+} */

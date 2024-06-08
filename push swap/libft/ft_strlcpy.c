@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:02:57 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/09 21:08:05 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/13 19:05:32 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
-// circular double linked list
-typedef struct s_stack
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	size_t	i;
+	size_t	lsrc;
 
-#endif
-void	ft_error(void);
-int	ft_atoi2(const char *nptr);
-void ft_parsing(char **av);
+	lsrc = ft_strlen(src); 
+	if (size == 0)
+		return (lsrc);
+	i = 0;
+	while (i < (size - 1) && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (lsrc);
+}

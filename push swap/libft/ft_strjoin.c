@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:02:57 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/09 21:07:45 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/22 16:48:15 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
-// circular double linked list
-typedef struct s_stack
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	char	*join;
+	size_t	i;
+	size_t	j;
 
-#endif
-void	ft_error(void);
-int	ft_atoi2(const char *nptr);
-void ft_parsing(char **av);
+	if (!s1 || !s2)
+		return (NULL);
+	join = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * (sizeof(char)));
+	if (join == 0)
+		return (0);
+	i = 0;
+	while (s1[i])
+	{
+		join[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		join[i + j] = s2[j];
+		j++;
+	}
+	join[i + j] = 0;
+	return (join);
+}

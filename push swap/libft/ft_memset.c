@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 16:42:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/07 17:27:01 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/09 21:05:29 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/19 23:47:51 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	**ft_process(t_stack *a)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (s);
 }

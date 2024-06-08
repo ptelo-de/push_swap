@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:02:57 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/09 21:10:47 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/24 21:32:16 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
-// circular double linked list
-typedef struct s_stack
+char	*ft_strdup(const char *s)
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	size_t	i;
+	char	*d;
+	size_t	n;
 
-#endif
-void	ft_error(void);
-int	ft_atoi2(const char *nptr);
-void ft_parsing(char **av);
+	n = ft_strlen(s);
+	i = 0;
+	d = ft_calloc((n + 1), sizeof(char));
+	if (!d)
+		return (NULL);
+	while (s[i])
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = 0;
+	return (d);
+}

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:02:57 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/09 18:59:27 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/22 19:24:13 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h>
-// circular double linked list
-typedef struct s_stack
+char	*ft_strchr(const char *s, int c)
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	size_t	i;
+	size_t	ls;
 
-#endif
-void	ft_error(void);
-int	ft_atoi2(const char *nptr);
-void ft_parsing(char **av);
+	i = 0;
+	ls = ft_strlen(s);
+	if ((unsigned char)c == '\0')
+		return ((char *)(s + (int)(ft_strlen(s))));
+	while (i <= ls)
+	{
+		if (s[i] == (unsigned char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	return (NULL);
+}
