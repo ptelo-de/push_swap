@@ -6,13 +6,13 @@
 #    By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/07 12:00:07 by ptelo-de          #+#    #+#              #
-#    Updated: 2024/06/08 20:05:52 by ptelo-de         ###   ########.fr        #
+#    Updated: 2024/06/09 15:49:38 by ptelo-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
-SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c
+SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c src/simple/init_stack.c
 OBJ = $(SRC:.c=.o)
 
 CC				= cc
@@ -28,7 +28,7 @@ CFLAGS			= -Wall -Wextra -Werror
 #	$(CC) $(CFLAGS) -c $< -o $@
  
 $(NAME): $(OBJ)
-	make -C libft/
+	make bonus -C libft/
 	${CC} ${FLAGS} ${OBJ} -o ${NAME} -L ./libft -lft
  
 clean:
