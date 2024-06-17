@@ -6,12 +6,29 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:42:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:16:08 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/16 21:59:09 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+void	ft_check_lenght(char **av)
+{
+	int	i;
+	int len;
+
+	i = 1;
+	while(av[i])
+	{
+		len = ft_strlen(av[i]);
+		if (len < 10
+		|| (len == 10 && ft_strncmp(av[i], "2147483647", 10) <= 0)
+		|| (len == 11 && ft_strncmp(av[i], "-2147483648", 11) <= 0))
+			return;
+		else
+			ft_error();
+	}
+}
 void ft_parsing(char **av)
 {
 	int	i;
@@ -19,6 +36,7 @@ void ft_parsing(char **av)
 	int	tmp;
 
 	i = 1;
+	ft_check_lenght(av);
 	while (av[i])
 	{
 		j = i + 1;

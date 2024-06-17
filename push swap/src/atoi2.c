@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:13:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/08 20:16:17 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/16 21:03:36 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi2(const char *nptr)
 		i++;
 	}
 	nb = nb * sign;
-	if (nptr[i] || nb > INT_MAX || nb < INT_MIN)
+	if (nptr[i])
 		ft_error();
 	return (nb);
 }

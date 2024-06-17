@@ -6,13 +6,13 @@
 #    By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/07 12:00:07 by ptelo-de          #+#    #+#              #
-#    Updated: 2024/06/09 15:49:38 by ptelo-de         ###   ########.fr        #
+#    Updated: 2024/06/17 01:29:57 by ptelo-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
-SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c src/simple/init_stack.c
+SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c src/simple/init_stack.c src/lst_utils.c
 OBJ = $(SRC:.c=.o)
 
 CC				= cc
@@ -22,7 +22,7 @@ CFLAGS			= -Wall -Wextra -Werror
  all: $(NAME)
 
 .c.o:
-	${CC} -c $< -o ${<:.c=.o}
+	${CC} -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
 
 # %.o: %.c
 #	$(CC) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 20:41:20 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/09 16:42:59 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/17 01:34:10 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 //creates a new stack a with 
 //all the numbers interpreted from the argumenets
-
+void	ft_lstparsing(t_stack *node)
+{
+	if(!node)
+	{
+		ft_free_stack(&node);
+		ft_error();	
+	}
+	return;
+}
+void	ft_del(int value)
+{
+	free(value);
+}
 t_stack	*ft_init_stack(int stack_len, char **av)
 {
 	t_stack	*a;
 	t_stack	*last_node;
 	t_stack *tmp;
-	int *content;
+	int content;
 	int	i;
 
-	a = ft_calloc(1, sizeof(t_stack));
-	if(!a)
-		return (NULL);
-	
-	// 	int			nbr;
-	// int			index;
-	// struct s_stack	*next;
-	// struct s_stack	*prev;
 	content = ft_atoi2(av[1]);
 	a = ft_lstnew(content);
 	tmp = a;
@@ -39,9 +43,12 @@ t_stack	*ft_init_stack(int stack_len, char **av)
 	while (i< stack_len)
 	{
 		content = ft_atoi2(av[i]);
-		last_node = ft_lstnew(content);
-		ft_lstadd_back(&tmp, last_node);//falta tratar de leaks
+		last_node = ft_newnode(content);
+		ft_lstparsing(last_node);	
+		ft_add_back_node(&tmp, last_node);//falta tratar de leaks
+		ft_lstparsing(ft_lstlast(tmp));
 		tmp = last_node;
+	//printf("%d\n",tmp->value);
 		i++;
 	}
 	return(a);

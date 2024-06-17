@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:49:36 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/24 22:23:55 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/16 18:54:48 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_del(void    *content)
 {
 	free(content);
 }
+
 int	main(void)
 {
 	t_list  *node1 = ft_lstnew(ft_strdup("content1"));
