@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:42:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/16 21:59:09 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:33:51 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ void	ft_check_lenght(char **av)
 	while(av[i])
 	{
 		len = ft_strlen(av[i]);
-		if (len < 10
+		if (!(len < 10
 		|| (len == 10 && ft_strncmp(av[i], "2147483647", 10) <= 0)
-		|| (len == 11 && ft_strncmp(av[i], "-2147483648", 11) <= 0))
-			return;
-		else
+		|| (len == 11 && ft_strncmp(av[i], "-2147483648", 11) <= 0)))
 			ft_error();
+		i++;
 	}
 }
 void ft_parsing(char **av)

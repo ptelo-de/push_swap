@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 20:41:20 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/17 01:34:10 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:57:43 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,8 @@ void	ft_lstparsing(t_stack *node)
 	}
 	return;
 }
-void	ft_del(int value)
-{
-	free(value);
-}
-t_stack	*ft_init_stack(int stack_len, char **av)
+
+t_stack	*	ft_init_stack(int stack_len, char **av)
 {
 	t_stack	*a;
 	t_stack	*last_node;
@@ -36,7 +33,7 @@ t_stack	*ft_init_stack(int stack_len, char **av)
 	int	i;
 
 	content = ft_atoi2(av[1]);
-	a = ft_lstnew(content);
+	a = ft_newnode(content);
 	tmp = a;
 	//index atribute assemble
 	i = 2;
@@ -46,7 +43,7 @@ t_stack	*ft_init_stack(int stack_len, char **av)
 		last_node = ft_newnode(content);
 		ft_lstparsing(last_node);	
 		ft_add_back_node(&tmp, last_node);//falta tratar de leaks
-		ft_lstparsing(ft_lstlast(tmp));
+		ft_lstparsing(ft_lastnode(tmp));
 		tmp = last_node;
 	//printf("%d\n",tmp->value);
 		i++;

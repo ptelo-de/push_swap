@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:30:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/17 01:21:43 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:04:04 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	main(int ac, char **av)
 {
 	t_stack *a;
+	t_stack *free_a;
 
 	if (ac == 1)
 		exit(1);
@@ -23,12 +24,13 @@ int	main(int ac, char **av)
 		ft_error();
 	ft_parsing(av);
 	a = ft_init_stack(ac, av);
+	free_a = a;
 	while (a)
 	{
-		printf("%d\n", a->value);
+		printf("%d %d\n",a->value, a->index);
 		a = a->next;
 	}
-	ft_free_stack(&a, ft_del);
+	ft_free_stack(&free_a);
 }
 //  ./push_swap "1 2 3 4" "2 3 45" , invalid 
 //  ./push_swap 1 2 3 4, valid, list of integers? 

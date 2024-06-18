@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/17 01:34:29 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:25:29 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				flag;
+//	int				flag;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
@@ -54,6 +54,7 @@ typedef struct s_store
 #endif
 // parsing
 void	ft_error(void);
+void	ft_check_lenght(char **av);
 int	ft_atoi2(const char *nptr);
 void ft_parsing(char **av);
 
@@ -64,7 +65,7 @@ void	ft_del(int value);
 
 //list utils
 t_stack	*ft_newnode(int value);
-t_stack	*ft_lastnode(t_stack *lst);
-void	ft_delonenode(t_stack *lst, void (*del)(void *));
-void	ft_free_stack(t_stack **lst);
 void	ft_add_back_node(t_stack **lst, t_stack *new);
+t_stack	*ft_lastnode(t_stack *lst);
+void	ft_add_front_node(t_stack **lst, t_stack *new);
+void	ft_free_stack(t_stack **lst);
