@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:30:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/18 20:04:04 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 00:43:18 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int ac, char **av)
 {
 	t_stack *a;
 	t_stack *free_a;
+	t_store	*store;
+	t_store	*free_store;
 
 	if (ac == 1)
 		exit(1);
@@ -25,6 +27,7 @@ int	main(int ac, char **av)
 	ft_parsing(av);
 	a = ft_init_stack(ac, av);
 	free_a = a;
+	store = ft_init_store(a);
 	while (a)
 	{
 		printf("%d %d\n",a->value, a->index);

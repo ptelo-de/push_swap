@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/18 19:25:29 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 00:45:07 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ typedef struct s_stack
 // structure with all the data
 typedef struct s_store
 {
-	int		count_a;
-	int		count_b;
-	int		chunk_size;
-	int		chunk_num;
-	int		biggest;
-	int		snd_biggest;
-	int		smallest;
+	//int		count_a;
+	//int		count_b;
+	//int		chunk_size;
+	//int		chunk_num;
+	//int		biggest;
+	//int		snd_biggest;
+	//int		smallest;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_stack	*tail_a;
@@ -69,3 +69,6 @@ void	ft_add_back_node(t_stack **lst, t_stack *new);
 t_stack	*ft_lastnode(t_stack *lst);
 void	ft_add_front_node(t_stack **lst, t_stack *new);
 void	ft_free_stack(t_stack **lst);
+
+//t_store utils
+t_store	*ft_init_store(t_stack *a);

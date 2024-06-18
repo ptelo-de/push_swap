@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 20:41:20 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/18 19:57:43 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 00:50:14 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,15 @@ t_stack	*	ft_init_stack(int stack_len, char **av)
 		i++;
 	}
 	return(a);
+}
+t_store	*ft_init_store(t_stack *a)
+{
+	t_store	s;
+	
+
+	s = malloc(sizeof(t_store));
+	if(!s)
+		return(NULL);
+	s.stack_a = a;
+	
 }
