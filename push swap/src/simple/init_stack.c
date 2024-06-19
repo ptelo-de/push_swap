@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 20:41:20 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 15:20:27 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:54:13 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_store	*ft_init_store(int ac, char **av)
 	s = ft_calloc(1, sizeof(t_store));
 	if(!s)
 		return(NULL);
-	s->head_a = ft_init_stack_a(ac, av);;
+	s->head_a = ft_init_stack_a(ac, av);
 	s->head_b = NULL;
 	s->tail_a = ft_lastnode(s->head_a);
 	s->tail_b = NULL;

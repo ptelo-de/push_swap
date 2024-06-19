@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:44:39 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 16:28:00 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:44:20 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,35 @@
 // Do nothing if there is only one or no elements.
 // - sb (swap b): Swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements.
-t_stack *ft_swap(t_stack *a)
+t_stack *ft_swap(t_store *s, char a, char b)
 {
-	t_stack	*a_next;
+	t_stack	*new_head;
 
-	a_next = a->next;
-	a->prev = a_next;
-	a->next = a_next->next;
-	a->index = 1;
-	a_next->index = 0;
-	a_next->next = a;
-	a_next->prev = NULL;
+	new_head = s->head_a->next;
+	//new_head->prev = NULL;
+	s->head_a->prev = new_head;
+	printf("new head %d == head_a.prev %d\n", new_head->value, s->head_a->prev->value);
+	s->head_a = new_head;
+	printf("lalalal\n");
+	printf("new head %d == head_a.prev %d\n", new_head->value, s->head_a->value);
+	// a->next = a_next->next;
+	// a_next->next = a;
+	// a_next->prev = NULL;
+	(void)a;(void)b;
 	
-	return(a_next);
+	return(NULL);
 }
 void	ft_pb(t_store *s)
 {
-	t_stack *tmp = s->head_a;
-	//t_stack	*old_head_a;
+	t_stack *node;
+	t_stack *head;
 
-	ft_add_front_node(&s->head_b, &tmp);
-	//old_head_a = s->head_a;
-	//s->head_a->next->prev = NULL;
-	s->head_a = s->head_a->next;
-	//free(old_head_a);
+	node = ft_newnode(s->head_a->value);
+	node->next = s->head_b;
+	s->head_b = node;
+	head = s->head_a->next;
+	free(s->head_a);
+	s->head_a = head;
+	s->head_a->prev = NULL;
+
 }

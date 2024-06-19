@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:30:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 16:23:43 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:34:08 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,17 @@ int	main(int ac, char **av)
 	store = ft_init_store(ac, av);
 	free_a = store->head_a;
 	free_b = store->head_b;
-	ft_pb(store);
+	//ft_pb(store);
+	//ft_pb(store);
+	ft_swap(store, 'a', ' ');
 	while (store->head_a)
 	{
-		printf("stack a: %d %d\n",store->head_a->value, store->head_a->index);
+		printf("stack a: %d\n",store->head_a->value);
 		store->head_a = store->head_a->next;
 	}
 		while (store->head_b)
 	{
-		printf("stack b: %d %d\n",store->head_b->value, store->head_b->index);
+		printf("stack b: %d\n",store->head_b->value);
 		store->head_b = store->head_b->next;
 	}
 	ft_free_stack(&free_a);
