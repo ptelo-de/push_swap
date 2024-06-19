@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 20:41:20 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 00:50:14 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:20:27 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_lstparsing(t_stack *node)
 	return;
 }
 
-t_stack	*	ft_init_stack(int stack_len, char **av)
+t_stack	*ft_init_stack_a(int stack_len, char **av)
 {
 	t_stack	*a;
 	t_stack	*last_node;
@@ -50,14 +50,17 @@ t_stack	*	ft_init_stack(int stack_len, char **av)
 	}
 	return(a);
 }
-t_store	*ft_init_store(t_stack *a)
+t_store	*ft_init_store(int ac, char **av)
 {
-	t_store	s;
+	t_store	*s;
 	
-
-	s = malloc(sizeof(t_store));
+	s = ft_calloc(1, sizeof(t_store));
 	if(!s)
 		return(NULL);
-	s.stack_a = a;
+	s->head_a = ft_init_stack_a(ac, av);;
+	s->head_b = NULL;
+	s->tail_a = ft_lastnode(s->head_a);
+	s->tail_b = NULL;
+	return(s);
 	
 }

@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:44:39 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 00:38:59 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:28:00 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,14 @@ t_stack *ft_swap(t_stack *a)
 	
 	return(a_next);
 }
-void	pa(s_store)
+void	ft_pb(t_store *s)
+{
+	t_stack *tmp = s->head_a;
+	//t_stack	*old_head_a;
+
+	ft_add_front_node(&s->head_b, &tmp);
+	//old_head_a = s->head_a;
+	//s->head_a->next->prev = NULL;
+	s->head_a = s->head_a->next;
+	//free(old_head_a);
+}

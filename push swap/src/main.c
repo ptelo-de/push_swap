@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:30:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 00:43:18 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:23:43 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,32 @@
 
 int	main(int ac, char **av)
 {
-	t_stack *a;
 	t_stack *free_a;
+	t_stack *free_b;
 	t_store	*store;
-	t_store	*free_store;
 
 	if (ac == 1)
 		exit(1);
 	if (ac == 2 && !av[1][0]) // protects only for ""
 		ft_error();
 	ft_parsing(av);
-	a = ft_init_stack(ac, av);
-	free_a = a;
-	store = ft_init_store(a);
-	while (a)
+	store = ft_init_store(ac, av);
+	free_a = store->head_a;
+	free_b = store->head_b;
+	ft_pb(store);
+	while (store->head_a)
 	{
-		printf("%d %d\n",a->value, a->index);
-		a = a->next;
+		printf("stack a: %d %d\n",store->head_a->value, store->head_a->index);
+		store->head_a = store->head_a->next;
+	}
+		while (store->head_b)
+	{
+		printf("stack b: %d %d\n",store->head_b->value, store->head_b->index);
+		store->head_b = store->head_b->next;
 	}
 	ft_free_stack(&free_a);
+	ft_free_stack(&free_b);
+	free(store);
 }
 //  ./push_swap "1 2 3 4" "2 3 45" , invalid 
 //  ./push_swap 1 2 3 4, valid, list of integers? 
