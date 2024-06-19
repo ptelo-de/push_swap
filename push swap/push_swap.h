@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 20:32:53 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 23:00:47 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ t_stack	*ft_newnode(int value);
 void	ft_add_back_node(t_stack **lst, t_stack *new);
 t_stack	*ft_lastnode(t_stack *lst);
 //void	ft_add_front_node(t_stack *lst, t_stack *new);
-void	ft_free_stack(t_stack **lst);
+void	ft_free_stack(t_stack *lst);
 
 //t_store utils
 t_store	*ft_init_store(int ac, char **av);
 
 //operations
 void	ft_pb(t_store *s);
-t_stack *ft_swap(t_store *s, char a, char b);
+void	ft_swap(t_store *s, char a, char b);

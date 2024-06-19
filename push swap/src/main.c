@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:30:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 20:34:08 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 23:00:33 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	main(int ac, char **av)
 		printf("stack b: %d\n",store->head_b->value);
 		store->head_b = store->head_b->next;
 	}
-	ft_free_stack(&free_a);
-	ft_free_stack(&free_b);
+	ft_free_stack(free_a);
+	ft_free_stack(free_b);
 	free(store);
 }
 //  ./push_swap "1 2 3 4" "2 3 45" , invalid 

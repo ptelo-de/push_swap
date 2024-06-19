@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 20:41:20 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 18:54:13 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:14:12 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstparsing(t_stack *node)
 {
 	if(!node)
 	{
-		ft_free_stack(&node);
+		ft_free_stack(node);
 		ft_error();	
 	}
 	return;
