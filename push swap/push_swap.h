@@ -67,4 +67,5 @@ t_store	*ft_init_store(int ac, char **av);
 
 //operations
 void	ft_pb(t_store *s);
+void	ft_pa(t_store *s);
 void	ft_swap(t_store *s, char a, char b);

@@ -16,6 +16,8 @@
 // Do nothing if there is only one or no elements.
 // - sb (swap b): Swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements.
+
+//decided to not protect when stack has only one node
 void ft_swap(t_store *s, char a, char b)
 {
 	t_stack	*old_head;
@@ -40,7 +42,7 @@ void ft_swap(t_store *s, char a, char b)
 	
 	return ;
 }
-
+//tested for last node
 void	ft_pb(t_store *s)
 {
 	t_stack *node;
@@ -48,7 +50,36 @@ void	ft_pb(t_store *s)
 	node = ft_newnode(s->head_a->value);
 	node->next = s->head_b;
 	s->head_b = node;
-	s->head_a = s->head_a->next;
-	free(s->head_a->prev);
-	s->head_a->prev = NULL;
+	if(s->head_a->next)
+	{
+		s->head_a = s->head_a->next;
+		free(s->head_a->prev);
+		s->head_a->prev = NULL;
+	}
+	else
+	{
+		free(s->head_a);
+		s->head_a = NULL;
+	}
+}
+//tested for last node
+void	ft_pa(t_store *s)
+{
+	t_stack *node;
+
+	node = ft_newnode(s->head_b->value);
+	node->next = s->head_a;
+	s->head_a = node;
+	if(s->head_b->next)
+	{
+		s->head_b = s->head_b->next;
+		free(s->head_b->prev);
+		s->head_b->prev = NULL;
+	}
+	else
+	{
+		free(s->head_b);
+		s->head_b = NULL;
+	}
+
 }
