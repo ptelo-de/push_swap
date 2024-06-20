@@ -71,7 +71,7 @@ void	ft_free_stack(t_stack *lst)
 
 	while (lst)
 	{
-		aux = (lst)->next;
+		aux = lst->next;
 		free(lst);
 		lst = aux;
 	}

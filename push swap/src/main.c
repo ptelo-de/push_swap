@@ -25,11 +25,12 @@ int	main(int ac, char **av)
 		ft_error();
 	ft_parsing(av);
 	store = ft_init_store(ac, av);
+	ft_pb(store);
+	ft_pb(store);
+	ft_swap(store, 'a', 'b');
+	ft_swap(store, ' ', 'b');
 	free_a = store->head_a;
 	free_b = store->head_b;
-	//ft_pb(store);
-	//ft_pb(store);
-	ft_swap(store, 'a', ' ');
 	while (store->head_a)
 	{
 		printf("stack a: %d\n",store->head_a->value);
