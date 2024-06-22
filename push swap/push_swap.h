@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 23:00:47 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/22 23:48:09 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,5 @@ t_store	*ft_init_store(int ac, char **av);
 void	ft_pb(t_store *s);
 void	ft_pa(t_store *s);
 void	ft_swap(t_store *s, char a, char b);
+void ft_rotate(t_store *s, char a, char b);
+void ft_rrotate(t_store *s, char a, char b);

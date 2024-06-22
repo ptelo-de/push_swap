@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:44:39 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 23:02:00 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/23 00:54:35 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,25 @@ void	ft_pa(t_store *s)
 		s->head_b = NULL;
 	}
 
+}
+void ft_rotate(t_store *s, char a, char b)
+{
+	//s->head_a->prev = s->tail_a;
+	s->tail_a->next = s->head_a;
+	s->head_a = s->head_a->next;
+	//s->head_a->prev = NULL;
+	s->tail_a = s->tail_a->next;
+	s->tail_a->next = NULL;
+	(void)a;(void)b;
+}
+void ft_rrotate(t_store *s, char a, char b)
+{
+	
+	s->head_a->prev = s->tail_a;
+	s->tail_a->next = s->head_a;
+	s->head_a = s->head_a->prev; 
+	s->tail_a = s->tail_a->prev;
+	s->tail_a->next = NULL;
+	s->head_a->prev = NULL;
+	(void)a;(void)b;
 }

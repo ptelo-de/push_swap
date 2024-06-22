@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:42:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/19 22:12:31 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:52:55 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ t_stack	*ft_lastnode(t_stack *lst)
 // 	}
 // 	// new->next = lst;
 // 	// lst = new;
-// 	// lst->prev = new;
-// 	// lst->index = 1;
-	
+// 	// lst->prev = new;	
 // }
 
 void	ft_free_stack(t_stack *lst)
