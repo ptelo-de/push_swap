@@ -12,8 +12,8 @@
 
 NAME			= push_swap
 
-SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c src/simple/init_stack.c src/lst_utils.c \
-	src/operations.c
+SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c src/init_stack.c src/lst_utils.c \
+src/operations.c  src/simple/sort_3.c
 OBJ = $(SRC:.c=.o)
 
 CC				= cc

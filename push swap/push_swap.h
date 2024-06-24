@@ -69,5 +69,7 @@ t_store	*ft_init_store(int ac, char **av);
 void	ft_pb(t_store *s);
 void	ft_pa(t_store *s);
 void	ft_swap(t_store *s, char a, char b);
-void ft_rotate(t_store *s, char a, char b);
+void ft_ra(t_store *s);
+void ft_rb(t_store *s);
 void ft_rrotate(t_store *s, char a, char b);
+void ft_sort_3(t_store *s, char a, char b);

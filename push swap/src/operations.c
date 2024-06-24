@@ -45,22 +45,23 @@ void ft_swap(t_store *s, char a, char b)
 //tested for last node
 void	ft_pb(t_store *s)
 {
-	t_stack *node;
+	
+	// t_stack *node;
 
-	node = ft_newnode(s->head_a->value);
-	node->next = s->head_b;
-	s->head_b = node;
-	if(s->head_a->next)
-	{
-		s->head_a = s->head_a->next;
-		free(s->head_a->prev);
-		s->head_a->prev = NULL;
-	}
-	else
-	{
-		free(s->head_a);
-		s->head_a = NULL;
-	}
+	// node = ft_newnode(s->head_a->value);
+	// node->next = s->head_b;
+	// s->head_b = node;
+	// if(s->head_a->next)
+	// {
+	// 	s->head_a = s->head_a->next;
+	// 	free(s->head_a->prev);
+	// 	s->head_a->prev = NULL;
+	// }
+	// else
+	// {
+	// 	free(s->head_a);
+	// 	s->head_a = NULL;
+	// }
 }
 //tested for last node
 void	ft_pa(t_store *s)
@@ -83,7 +84,7 @@ void	ft_pa(t_store *s)
 	}
 
 }
-void ft_rotate(t_store *s, char a, char b)
+void ft_ra(t_store *s)
 {
 	//s->head_a->prev = s->tail_a;
 	s->tail_a->next = s->head_a;
@@ -91,7 +92,15 @@ void ft_rotate(t_store *s, char a, char b)
 	//s->head_a->prev = NULL;
 	s->tail_a = s->tail_a->next;
 	s->tail_a->next = NULL;
-	(void)a;(void)b;
+}
+void ft_rb(t_store *s)
+{
+	//s->head_b->prev = s->tail_b;
+	s->tail_b->next = s->head_b;
+	s->head_b = s->head_b->next;
+	//s->head_b->prev = NULL;
+	s->tail_b = s->tail_b->next;
+	s->tail_b->next = NULL;
 }
 void ft_rrotate(t_store *s, char a, char b)
 {

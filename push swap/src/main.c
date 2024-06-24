@@ -25,7 +25,11 @@ int	main(int ac, char **av)
 		ft_error();
 	ft_parsing(av);
 	store = ft_init_store(ac, av);
-	ft_rrotate(store, 'a', 'b');
+	ft_pb(store);
+	ft_pb(store);
+	ft_pb(store);
+	ft_pb(store);
+	ft_sort_3(store, 'a', 'b');
 	free_a = store->head_a;
 	free_b = store->head_b;
 	
@@ -34,11 +38,11 @@ int	main(int ac, char **av)
 		printf("stack a: %d\n",store->head_a->value);
 		store->head_a = store->head_a->next;
 	}
-	// 	while (store->head_b)
-	// {
-	// 	printf("stack b: %d\n",store->head_b->value);
-	// 	store->head_b = store->head_b->next;
-	// }
+		while (store->head_b)
+	{
+		printf("stack b: %d\n",store->head_b->value);
+		store->head_b = store->head_b->next;
+	}
 	ft_free_stack(free_a);
 	ft_free_stack(free_b);
 	free(store);
