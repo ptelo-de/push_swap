@@ -13,6 +13,19 @@
 #include "../push_swap.h"
 #include "stdio.h"
 
+void ft_print_rev(t_store *s)
+{
+	while (s->tail_a)
+	{
+		printf("stackarev: %d\n", s->tail_a->value);
+		s->tail_a = s->tail_a->prev;
+	}
+		while (s->tail_b)
+	{
+		printf("stackbrev: %d\n", s->tail_b->value);
+		s->tail_b = s->tail_b->prev;
+	}
+}
 int	main(int ac, char **av)
 {
 	t_stack *free_a;
@@ -25,11 +38,11 @@ int	main(int ac, char **av)
 		ft_error();
 	ft_parsing(av);
 	store = ft_init_store(ac, av);
-	ft_pb(store);
-	ft_pb(store);
-	ft_pb(store);
-	ft_pb(store);
+	 ft_pb(store);
+	 ft_pb(store);
+	 ft_pb(store);
 	ft_sort_3(store, 'a', 'b');
+	ft_print_rev(store);
 	free_a = store->head_a;
 	free_b = store->head_b;
 	

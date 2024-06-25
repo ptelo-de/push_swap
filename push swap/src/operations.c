@@ -42,26 +42,32 @@ void ft_swap(t_store *s, char a, char b)
 	
 	return ;
 }
-//tested for last node
+//Push top stack a to top stack b
+//tested for last node printing with next and  with prev
+//does not seg fault when called with stack a null
 void	ft_pb(t_store *s)
 {
-	
-	// t_stack *node;
+	if(s->head_b  && s->head_a)
+	{
+		s->head_b->prev = s->head_a;
+		s->head_a = s->head_a->next;
+		if(s->head_a)
+			s->head_a->prev = NULL;
+		else
+			s->tail_a = NULL;
+		s->head_b->prev->next = s->head_b;
+		s->head_b = s->head_b->prev;
 
-	// node = ft_newnode(s->head_a->value);
-	// node->next = s->head_b;
-	// s->head_b = node;
-	// if(s->head_a->next)
-	// {
-	// 	s->head_a = s->head_a->next;
-	// 	free(s->head_a->prev);
-	// 	s->head_a->prev = NULL;
-	// }
-	// else
-	// {
-	// 	free(s->head_a);
-	// 	s->head_a = NULL;
-	// }
+	}
+	else if (s->head_a)
+	{
+		s->head_b = s->head_a;
+		s->head_a = s->head_a->next,
+		s->head_a->prev = NULL;
+		s->head_b->next = NULL;
+		s->tail_b = s->head_b;
+	}
+
 }
 //tested for last node
 void	ft_pa(t_store *s)
