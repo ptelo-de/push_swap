@@ -26,26 +26,8 @@ void ft_print_rev(t_store *s)
 		s->tail_b = s->tail_b->prev;
 	}
 }
-int	main(int ac, char **av)
+void ft_print_(t_store *store)
 {
-	t_stack *free_a;
-	t_stack *free_b;
-	t_store	*store;
-
-	if (ac == 1)
-		exit(1);
-	if (ac == 2 && !av[1][0]) // protects only for ""
-		ft_error();
-	ft_parsing(av);
-	store = ft_init_store(ac, av);
-	 ft_pb(store);
-	 ft_pb(store);
-	 ft_pb(store);
-	ft_sort_3(store, 'a', 'b');
-	ft_print_rev(store);
-	free_a = store->head_a;
-	free_b = store->head_b;
-	
 	while (store->head_a)
 	{
 		printf("stack a: %d\n",store->head_a->value);
@@ -56,6 +38,31 @@ int	main(int ac, char **av)
 		printf("stack b: %d\n",store->head_b->value);
 		store->head_b = store->head_b->next;
 	}
+}
+int	main(int ac, char **av)
+{
+	t_stack *free_a;
+	t_stack *free_b;
+	t_store	*store;
+	//t_store *paux;
+
+	if (ac == 1)
+		exit(1);
+	if (ac == 2 && !av[1][0]) // protects only for ""
+		ft_error();
+	ft_parsing(av);
+	store = ft_init_store(ac, av);
+	 ft_pb(store);
+	 ft_pb(store);
+	 ft_pb(store);
+	 //paux = store;
+	//ft_print_(paux);
+	ft_sort_3(store, 'a', 'b');
+	//ft_print_rev(store);
+	free_a = store->head_a;
+	free_b = store->head_b;
+	ft_print_(store);
+	
 	ft_free_stack(free_a);
 	ft_free_stack(free_b);
 	free(store);

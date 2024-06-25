@@ -71,5 +71,12 @@ void	ft_pa(t_store *s);
 void	ft_swap(t_store *s, char a, char b);
 void ft_ra(t_store *s);
 void ft_rb(t_store *s);
-void ft_rrotate(t_store *s, char a, char b);
+void ft_rra(t_store *s);
+void ft_rrb(t_store *s);
+//sort 3
+int	order_check_a(t_store *data);
+int	order_check_b(t_store *data);
 void ft_sort_3(t_store *s, char a, char b);
+
+//extra 
+void ft_print_(t_store *store);
