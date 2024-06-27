@@ -22,21 +22,14 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-//	int				flag;
+	int				bff_index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
 
-// structure with all the data
+// structure with two stacks, head and tail
 typedef struct s_store
 {
-	//int		count_a;
-	//int		count_b;
-	//int		chunk_size;
-	//int		chunk_num;
-	//int		biggest;
-	//int		snd_biggest;
-	//int		smallest;
 	t_stack	*head_a;
 	t_stack	*head_b;
 	t_stack	*tail_a;
@@ -60,6 +53,7 @@ t_stack	*ft_newnode(int value);
 void	ft_add_back_node(t_stack **lst, t_stack *new);
 t_stack	*ft_lastnode(t_stack *lst);
 //void	ft_add_front_node(t_stack *lst, t_stack *new);
+int	ft_stacksize(t_stack *lst);
 void	ft_free_stack(t_stack *lst);
 
 //t_store utils
@@ -74,9 +68,19 @@ void ft_rb(t_store *s);
 void ft_rra(t_store *s);
 void ft_rrb(t_store *s);
 //sort 3
-int	order_check_a(t_store *data);
-int	order_check_b(t_store *data);
 void ft_sort_3(t_store *s, char a, char b);
+
+//sort_4
+void ft_sort_4(t_store *s);
+void ft_sort_5(t_store *s);
+
+//bff
+int ft_average(t_store *s);
+void    ft_setindex(t_store *s);
+void    ft_algorithm(t_store *s);
+void    ft_setbf(t_store *s);
 
 //extra 
 void ft_print_(t_store *store);
+int	order_check_a(t_store *data);
+int	order_check_b(t_store *data);

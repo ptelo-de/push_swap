@@ -49,19 +49,22 @@ t_stack	*ft_lastnode(t_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
-// void	ft_add_front_node(t_stack *lst, t_stack *new)
-// {
-// 	if (!lst && !new)
-// 		return ;
-// 	if (!lst && new)
-// 	{
-// 		lst = new;
-// 		return;
-// 	}
-// 	// new->next = lst;
-// 	// lst = new;
-// 	// lst->prev = new;	
-// }
+int	ft_stacksize(t_stack *lst)
+{
+	t_stack	*temp;
+	int		counter;
+
+	if (!lst)
+		return (0);
+	counter = 1;
+	temp = lst->next;
+	while (temp)
+	{
+		counter++;
+		temp = temp->next;
+	}
+	return(counter);
+}
 
 void	ft_free_stack(t_stack *lst)
 {

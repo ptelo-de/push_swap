@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-//goes throuh an auxiiar head_a and returns 1 if stack is not sorted
+//goes through an auxiiar head_a and returns 1 if stack is not sorted
 int	order_check_a(t_store *data)
 {
 	int		i;
@@ -29,6 +29,7 @@ int	order_check_a(t_store *data)
 	}
 	return (0);
 }
+//goes through an auxiiar head_b and returns 1 if stack is not sorted
 int	order_check_b(t_store *data)
 {
 	int		i;
@@ -70,16 +71,59 @@ void ft_sort_3(t_store *s, char a, char b)
             ft_swap(s, 0, b);
     }
 }
-// void	sort_3(t_list **a)
-// {
-// 	if ((*a)->nbr > (*a)->next->nbr && (*a)->nbr > (*a)->next->next->nbr)
-// 		ra(a);
-// 	if ((*a)->next->nbr > (*a)->next->next->nbr)
-// 		rra(a);
-// 	if ((*a)->nbr > (*a)->next->nbr)
-// 		sa(a);
-// }
-// void ft_sort_5(t_store *s, char a, char b)
-// {
+//sorts head a in ascending order, 
+//only woks for stack a with 4 elements
+void ft_sort_4(t_store *s)
+{
+    int sec;
+    int thi;
+    int fou;
 
-// }
+    sec = s->head_a->next->value;
+    thi = s->tail_a->prev->value;
+    fou = s->tail_a->value;
+	if (sec < s->head_a->value && sec < thi && sec < fou)
+		ft_ra(s);  
+	else if (thi < s->head_a->value && thi < sec && thi< fou)
+        {
+		    ft_rra(s);
+            ft_rra(s);
+        }
+	else if (fou < s->head_a->value && fou < sec && fou < thi)
+		ft_rra(s);
+	ft_pb(s);
+	ft_sort_3(s, 'a', 0);
+	ft_pa(s);
+}
+
+//sorts head a in ascending order, 
+//only woks for stack a with 4 elements
+void ft_sort_5(t_store *s)
+{
+    int	sec;
+	int	thi;
+	int	fou;
+	int	fif;
+
+	sec = s->head_a->next->value;
+	thi = s->head_a->next->next->value;
+	fou = s->tail_a->prev->value;
+	fif = s->tail_a->value;
+	if ((sec < s->head_a->value) && (sec < thi) && (sec < fou) && (sec < fif))
+		ft_ra(s);
+	else if ((thi < s->head_a->value) && (thi < sec) && (thi < fou) && (thi < fif))
+	{
+		ft_ra(s);
+		ft_ra(s);
+	}
+	else if ((fou < s->head_a->value) && (fou < sec) && (fou < thi) && (fou < fif))
+	{
+        ft_rra(s);
+        ft_rra(s);
+    }
+	else if ((fif < s->head_a->value) && (fif < sec) && (fif < thi) && (fif < fou))
+		ft_rra(s);
+	ft_pb(s);
+	ft_sort_4(s);
+	ft_pa(s);
+}

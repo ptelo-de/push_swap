@@ -30,15 +30,28 @@ void ft_print_(t_store *store)
 {
 	while (store->head_a)
 	{
-		printf("stack a: %d\n",store->head_a->value);
+		printf("stack a:value : %d\n", store->head_a->value);
 		store->head_a = store->head_a->next;
 	}
 		while (store->head_b)
 	{
-		printf("stack b: %d\n",store->head_b->value);
+		printf("stack b:value : %d\n",store->head_b->value);
 		store->head_b = store->head_b->next;
 	}
 }
+// void ft_print_(t_store *store)
+// {
+// 	while (store->head_a)
+// 	{
+// 		printf("stack a: index: %d bff: %d value : %d\n",store->head_a->index, store->head_a->bff_index, store->head_a->value);
+// 		store->head_a = store->head_a->next;
+// 	}
+// 		while (store->head_b)
+// 	{
+// 		printf("stack b: index : %d bff: %d value : %d\n",store->head_b->index, store->head_a->bff_index, store->head_b->value);
+// 		store->head_b = store->head_b->next;
+// 	}
+// }
 int	main(int ac, char **av)
 {
 	t_stack *free_a;
@@ -52,13 +65,7 @@ int	main(int ac, char **av)
 		ft_error();
 	ft_parsing(av);
 	store = ft_init_store(ac, av);
-	 ft_pb(store);
-	 ft_pb(store);
-	 ft_pb(store);
-	 //paux = store;
-	//ft_print_(paux);
-	ft_sort_3(store, 'a', 'b');
-	//ft_print_rev(store);
+	ft_algorithm(store);
 	free_a = store->head_a;
 	free_b = store->head_b;
 	ft_print_(store);
