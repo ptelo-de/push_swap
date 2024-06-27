@@ -26,32 +26,32 @@ void ft_print_rev(t_store *s)
 		s->tail_b = s->tail_b->prev;
 	}
 }
-void ft_print_(t_store *store)
-{
-	while (store->head_a)
-	{
-		printf("stack a:value : %d\n", store->head_a->value);
-		store->head_a = store->head_a->next;
-	}
-		while (store->head_b)
-	{
-		printf("stack b:value : %d\n",store->head_b->value);
-		store->head_b = store->head_b->next;
-	}
-}
 // void ft_print_(t_store *store)
 // {
 // 	while (store->head_a)
 // 	{
-// 		printf("stack a: index: %d bff: %d value : %d\n",store->head_a->index, store->head_a->bff_index, store->head_a->value);
+// 		printf("stack a:value : %d\n", store->head_a->value);
 // 		store->head_a = store->head_a->next;
 // 	}
 // 		while (store->head_b)
 // 	{
-// 		printf("stack b: index : %d bff: %d value : %d\n",store->head_b->index, store->head_a->bff_index, store->head_b->value);
+// 		printf("stack b:value : %d\n",store->head_b->value);
 // 		store->head_b = store->head_b->next;
 // 	}
 // }
+void ft_print_(t_store *store)
+{
+	while (store->head_a)
+	{
+		printf("stack a: index: %d bff: %d value : %d\n",store->head_a->index, store->head_a->bff_index, store->head_a->value);
+		store->head_a = store->head_a->next;
+	}
+		while (store->head_b)
+	{
+		printf("stack b: index : %d bff: %d value : %d\n",store->head_b->index, store->head_b->bff_index, store->head_b->value);
+		store->head_b = store->head_b->next;
+	}
+}
 int	main(int ac, char **av)
 {
 	t_stack *free_a;

@@ -29,6 +29,7 @@ int ft_average(t_store *s)
     }
     return (sum / l);
 }
+//index start at 1 for add cost func
 void    ft_setindex(t_store *s)
 {
     t_stack *tmpa;
@@ -37,14 +38,14 @@ void    ft_setindex(t_store *s)
 
     tmpa = s->head_a;
     tmpb = s->head_b;
-    i = 0;
+    i = 1;
 
     while(tmpa)
     {
         tmpa->index = i++;
         tmpa = tmpa->next;
     }
-    i = 0;
+    i = 1;
     while(tmpb)
     {
         tmpb->index = i++;
@@ -54,28 +55,36 @@ void    ft_setindex(t_store *s)
 void    ft_setbf(t_store *s)
 {
     t_stack *tmpa;
+    t_stack *tmpb;
     long long num;
     long long diff;
 
+    tmpb = s->head_b;
+    while (tmpb)
+    {
     tmpa = s->head_a;
     num = s->head_b->value;
     diff =  (long long)tmpa->value - num;
     s->head_b->bff_index = tmpa->index;
-    tmpa->bff_index = s->head_b->index;
+    //tmpa->bff_index = s->head_b->index;
     if (tmpa->next)
         tmpa = tmpa->next;
     else
         return;
+        
     while (tmpa)
     {
         if (diff > (long long)tmpa->value - num)
         {
             diff = (long long)tmpa->value - num;
             s->head_b->bff_index = tmpa->index;
-            tmpa->bff_index = s->head_b->index;
+            //tmpa->bff_index = s->head_b->index;
         }
         tmpa = tmpa->next;
     }
+    tmpb = tmpb->next;
+    }
+    
 }
 void    ft_algorithm(t_store *s)
 {
@@ -87,12 +96,13 @@ void    ft_algorithm(t_store *s)
             ft_ra(s);
     }
     ft_setindex(s);
-    while(s->head_b)
-    {
-        ft_setbf(s);
-        printf("bffheadb%d\n", s->head_b->bff_index);
-        s->head_b = s->head_b->next;
+    ft_setbf(s);
+    // while(s->head_b)
+    // {
+    //     ft_setbf(s);
+    //     printf("bffheadb%d\n", s->head_b->bff_index);
+    //     s->head_b = s->head_b->next;
 
-    }
+    // }
 
 }
