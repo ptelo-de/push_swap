@@ -38,14 +38,13 @@ void    ft_setindex(t_store *s)
 
     tmpa = s->head_a;
     tmpb = s->head_b;
-    i = 1;
-
+    i = 0;
     while(tmpa)
     {
         tmpa->index = i++;
         tmpa = tmpa->next;
     }
-    i = 1;
+    i = 0;
     while(tmpb)
     {
         tmpb->index = i++;
@@ -66,7 +65,7 @@ void    ft_setbf(t_store *s)
     num = s->head_b->value;
     diff =  (long long)tmpa->value - num;
     s->head_b->bff_index = tmpa->index;
-    //tmpa->bff_index = s->head_b->index;
+    tmpa->bff_index = s->head_b->index;
     if (tmpa->next)
         tmpa = tmpa->next;
     else
@@ -78,7 +77,7 @@ void    ft_setbf(t_store *s)
         {
             diff = (long long)tmpa->value - num;
             s->head_b->bff_index = tmpa->index;
-            //tmpa->bff_index = s->head_b->index;
+            tmpa->bff_index = s->head_b->index;
         }
         tmpa = tmpa->next;
     }
@@ -105,4 +104,53 @@ void    ft_algorithm(t_store *s)
 
     // }
 
+}
+t_stack *ft_nodebyindex(int i, t_stack *tmpa)
+{
+    t_stack *tmp;
+
+    tmp = tmpa;
+    while (tmp)
+    {
+        if (tmp->index == i)
+            return (tmp);
+        tmp = tmp->next;
+    }
+    return (NULL);
+}
+// void ft_cleancost(t_store *s)
+// {
+//     //puts cost to zero after calling set cost
+// }
+
+void ft_setcost(t_store *s)
+{
+    t_stack *tmpa;
+    t_stack *tmpb;
+    int a_size;
+    int b_size;
+    int a_moves;
+    int b_moves;
+
+    tmpa = s->head_a;
+    while (tmpa)
+    {
+        a_moves = 0;
+        b_moves = 0;
+        tmpb = ft_nodebyindex(tmpa->bff_index, s->head_b);
+        if (a_size - tmpa->index < tmpa->index)
+        {
+          tmpa->cost += a_size - tmpa->index; 
+          tmpb->cost += a_size - tmpa->index;  
+        }
+        else
+        {
+            tmpa->cost += tmpa->index; 
+            tmpb->cost += tmpa->index; 
+        }
+        tmpa = tmpa->next;
+    }
+    tmpb = s->head_b;
+
+    
 }
