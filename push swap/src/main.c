@@ -48,7 +48,7 @@ void ft_print_(t_store *store)
 	}
 		while (store->head_b)
 	{
-		printf("stack b: index : %d bff: %d value : %d\n",store->head_b->index, store->head_b->bff_index, store->head_b->value);
+		printf("stack b: index : %d bff: %d cost: %d value : %d\n",store->head_b->index, store->head_b->bff_index,store->head_b->cost, store->head_b->value);
 		store->head_b = store->head_b->next;
 	}
 }

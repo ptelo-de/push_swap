@@ -80,6 +80,14 @@ int ft_average(t_store *s);
 void    ft_setindex(t_store *s);
 void    ft_algorithm(t_store *s);
 void    ft_setbf(t_store *s);
+void ft_setcost(t_store *s);
+int ft_choosebest(t_store *s);
+
+//big_sort
+void	ft_rot_a(t_store *s, int bff_index);
+void	ft_rot_b(t_store *s, int index);
+void	ft_sort_top(t_store *s);
+t_stack *ft_nodebyindex(int i, t_stack *tmpa);
 
 //extra 
 void ft_print_(t_store *store);

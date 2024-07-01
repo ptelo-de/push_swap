@@ -61,27 +61,31 @@ void    ft_setbf(t_store *s)
     tmpb = s->head_b;
     while (tmpb)
     {
-    tmpa = s->head_a;
-    num = s->head_b->value;
-    diff =  (long long)tmpa->value - num;
-    s->head_b->bff_index = tmpa->index;
-    tmpa->bff_index = s->head_b->index;
-    if (tmpa->next)
-        tmpa = tmpa->next;
-    else
-        return;
-        
-    while (tmpa)
-    {
-        if (diff > (long long)tmpa->value - num)
+        tmpa = s->head_a;
+        num = tmpb->value;
+        diff =  (long long)tmpa->value - num;
+        printf("dif: %lld\n", diff);
+        tmpb->bff_index = tmpa->index;
+        tmpa->bff_index = tmpb->index;//atention : it gets always the last index od stack b 
+        if (tmpa->next)
+            tmpa = tmpa->next;
+        else
         {
-            diff = (long long)tmpa->value - num;
-            s->head_b->bff_index = tmpa->index;
-            tmpa->bff_index = s->head_b->index;
+            printf("lalalalallal\n");
+            return;
         }
-        tmpa = tmpa->next;
-    }
-    tmpb = tmpb->next;
+        
+        while (tmpa)
+        {
+            if (diff > (long long)tmpa->value - num)
+            {
+                diff = (long long)tmpa->value - num;
+                tmpb->bff_index = tmpa->index;
+                tmpa->bff_index = tmpb->index;
+            }
+            tmpa = tmpa->next;
+        }
+        tmpb = tmpb->next;
     }
     
 }
@@ -96,61 +100,51 @@ void    ft_algorithm(t_store *s)
     }
     ft_setindex(s);
     ft_setbf(s);
-    // while(s->head_b)
-    // {
-    //     ft_setbf(s);
-    //     printf("bffheadb%d\n", s->head_b->bff_index);
-    //     s->head_b = s->head_b->next;
-
-    // }
-
+    ft_setcost(s);
+    ft_sort_top(s);
 }
-t_stack *ft_nodebyindex(int i, t_stack *tmpa)
-{
-    t_stack *tmp;
 
-    tmp = tmpa;
-    while (tmp)
-    {
-        if (tmp->index == i)
-            return (tmp);
-        tmp = tmp->next;
-    }
-    return (NULL);
-}
-// void ft_cleancost(t_store *s)
-// {
-//     //puts cost to zero after calling set cost
-// }
-
+//tested
 void ft_setcost(t_store *s)
 {
-    t_stack *tmpa;
     t_stack *tmpb;
     int a_size;
     int b_size;
-    int a_moves;
-    int b_moves;
 
-    tmpa = s->head_a;
-    while (tmpa)
-    {
-        a_moves = 0;
-        b_moves = 0;
-        tmpb = ft_nodebyindex(tmpa->bff_index, s->head_b);
-        if (a_size - tmpa->index < tmpa->index)
-        {
-          tmpa->cost += a_size - tmpa->index; 
-          tmpb->cost += a_size - tmpa->index;  
-        }
-        else
-        {
-            tmpa->cost += tmpa->index; 
-            tmpb->cost += tmpa->index; 
-        }
-        tmpa = tmpa->next;
-    }
     tmpb = s->head_b;
-
-    
+    a_size = ft_stacksize(s->head_a);
+    b_size = ft_stacksize(s->head_b);
+    while (tmpb)
+    {
+        if (a_size - tmpb->bff_index < tmpb->bff_index)
+            tmpb->cost += a_size - tmpb->bff_index; 
+        else
+            tmpb->cost += tmpb->bff_index;
+        if (b_size - tmpb->index < tmpb->index)
+           tmpb->cost += b_size - tmpb->index;
+        else
+            tmpb->cost += tmpb->index;
+        tmpb = tmpb->next;
+    }
 }
+ // this function chooses the index of stack b with lowest cost
+ int ft_choosebest(t_store *s)
+ {
+    t_stack *tmpb;
+    int bestcost;
+    int i;
+
+    tmpb = s->head_b;
+    bestcost = tmpb->cost;
+
+    while(tmpb)
+    {
+        if ( bestcost > tmpb->cost )
+        {
+            bestcost = tmpb->cost;
+            i = tmpb->index;
+        }
+        tmpb = tmpb->next;
+    }
+    return(i);
+ }

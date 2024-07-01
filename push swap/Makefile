@@ -13,7 +13,7 @@
 NAME			= push_swap
 
 SRC = src/main.c src/ft_error.c src/atoi2.c src/ft_parsing.c src/init_stack.c src/lst_utils.c \
-src/operations.c  src/simple/sort_3.c src/simple/bff.c 
+src/operations.c  src/simple/sort_3.c src/simple/bff.c src/simple/big_sort.c
 OBJ = $(SRC:.c=.o)
 
 CC				= cc
