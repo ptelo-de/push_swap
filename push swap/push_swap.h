@@ -88,8 +88,12 @@ void	ft_rot_a(t_store *s, int bff_index);
 void	ft_rot_b(t_store *s, int index);
 void	ft_sort_top(t_store *s);
 t_stack *ft_nodebyindex(int i, t_stack *tmpa);
+void ft_cleancost(t_store *s);
 
 //extra 
 void ft_print_(t_store *store);
 int	order_check_a(t_store *data);
 int	order_check_b(t_store *data);
+//not mine
+void	final_rot(t_store *s);
+void	rot_last(t_store *s, int index);

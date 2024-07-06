@@ -64,14 +64,12 @@ void    ft_setbf(t_store *s)
         tmpa = s->head_a;
         num = tmpb->value;
         diff =  (long long)tmpa->value - num;
-        printf("dif: %lld\n", diff);
         tmpb->bff_index = tmpa->index;
         tmpa->bff_index = tmpb->index;//atention : it gets always the last index od stack b 
         if (tmpa->next)
             tmpa = tmpa->next;
         else
         {
-            printf("lalalalallal\n");
             return;
         }
         
@@ -98,13 +96,22 @@ void    ft_algorithm(t_store *s)
         else
             ft_ra(s);
     }
+    ft_sort_5(s);
+    int i = 4; //1 is passing when it should not, need to sort stack b
+    while(s->head_b)
+    {
     ft_setindex(s);
     ft_setbf(s);
     ft_setcost(s);
+    if (i == 1) //erase this if condition
+        printf("cost head b: %d\n", s->head_b->cost);
     ft_sort_top(s);
+    ft_cleancost(s);
+    }
+    final_rot(s);
 }
 
-//tested
+//set cost for only stack b. tested
 void ft_setcost(t_store *s)
 {
     t_stack *tmpb;
@@ -117,17 +124,18 @@ void ft_setcost(t_store *s)
     while (tmpb)
     {
         if (a_size - tmpb->bff_index < tmpb->bff_index)
-            tmpb->cost += a_size - tmpb->bff_index; 
+            tmpb->cost += a_size - tmpb->bff_index - 1; 
         else
             tmpb->cost += tmpb->bff_index;
         if (b_size - tmpb->index < tmpb->index)
-           tmpb->cost += b_size - tmpb->index;
+           tmpb->cost += b_size - tmpb->index - 1;
         else
             tmpb->cost += tmpb->index;
         tmpb = tmpb->next;
     }
 }
  // this function chooses the index of stack b with lowest cost
+ // is failing when bff is the same but the cost of the chosen is btter, is not qualifying swap move correctly
  int ft_choosebest(t_store *s)
  {
     t_stack *tmpb;
@@ -135,6 +143,7 @@ void ft_setcost(t_store *s)
     int i;
 
     tmpb = s->head_b;
+    i = tmpb->index;
     bestcost = tmpb->cost;
 
     while(tmpb)
@@ -144,6 +153,8 @@ void ft_setcost(t_store *s)
             bestcost = tmpb->cost;
             i = tmpb->index;
         }
+        //maybe put here condition to chose beter when bff is same
+
         tmpb = tmpb->next;
     }
     return(i);

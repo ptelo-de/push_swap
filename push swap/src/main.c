@@ -79,3 +79,4 @@ int	main(int ac, char **av)
 // no because sizeof(av[1]) == 8 bytes, it is an array of strings
 // ARG="1 2 3 4", valid and counting 4 , echo $ARG
 // arguments to the stack passed as bash variable
+// stack : 5 6 10 2 9 3 1 7 8 4
