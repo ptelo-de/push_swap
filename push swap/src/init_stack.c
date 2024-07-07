@@ -35,7 +35,6 @@ t_stack	*ft_init_stack_a(int stack_len, char **av)
 	content = ft_atoi2(av[1]);
 	a = ft_newnode(content);
 	tmp = a;
-	//index atribute assemble
 	i = 2;
 	while (i< stack_len)
 	{

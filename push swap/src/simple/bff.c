@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+#include <limits.h>
 
 //tested
 int ft_average(t_store *s)
@@ -63,19 +64,12 @@ void    ft_setbf(t_store *s)
     {
         tmpa = s->head_a;
         num = tmpb->value;
-        diff =  (long long)tmpa->value - num;
+        diff = LLONG_MAX;
         tmpb->bff_index = tmpa->index;
         tmpa->bff_index = tmpb->index;//atention : it gets always the last index od stack b 
-        if (tmpa->next)
-            tmpa = tmpa->next;
-        else
-        {
-            return;
-        }
-        
         while (tmpa)
         {
-            if (diff > (long long)tmpa->value - num)
+            if ((diff > ((long long)tmpa->value - num))  && tmpa->value > num)
             {
                 diff = (long long)tmpa->value - num;
                 tmpb->bff_index = tmpa->index;
@@ -97,14 +91,12 @@ void    ft_algorithm(t_store *s)
             ft_ra(s);
     }
     ft_sort_5(s);
-    int i = 4; //1 is passing when it should not, need to sort stack b
+     //1 is passing when it should not, need to sort stack b
     while(s->head_b)
     {
     ft_setindex(s);
     ft_setbf(s);
     ft_setcost(s);
-    if (i == 1) //erase this if condition
-        printf("cost head b: %d\n", s->head_b->cost);
     ft_sort_top(s);
     ft_cleancost(s);
     }
@@ -139,6 +131,7 @@ void ft_setcost(t_store *s)
  int ft_choosebest(t_store *s)
  {
     t_stack *tmpb;
+    t_stack *node;
     int bestcost;
     int i;
 
@@ -157,5 +150,17 @@ void ft_setcost(t_store *s)
 
         tmpb = tmpb->next;
     }
+    tmpb = s->head_b;
+    while(tmpb)
+    {
+        node = ft_nodebyindex(i, s->head_b);
+        if (tmpb->cost == bestcost &&  
+        ft_nodebyindex(tmpb->bff_index, s->head_b)->value - tmpb->value < ft_nodebyindex(node->bff_index, s->head_b)->value - node->value)
+        {
+            i = tmpb->index;
+        }
+        tmpb = tmpb->next;
+    }
+
     return(i);
  }
