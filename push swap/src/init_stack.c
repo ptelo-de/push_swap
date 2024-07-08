@@ -44,7 +44,6 @@ t_stack	*ft_init_stack_a(int stack_len, char **av)
 		ft_add_back_node(&tmp, last_node);//falta tratar de leaks
 		ft_lstparsing(ft_lastnode(tmp));
 		tmp = last_node;
-	//printf("%d\n",tmp->value);
 		i++;
 	}
 	return(a);

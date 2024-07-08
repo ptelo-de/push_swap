@@ -12,22 +12,22 @@
 
 #include "../push_swap.h"
 
-void	ft_check_lenght(char **av)
-{
-	int	i;
-	int len;
+// void	ft_check_lenght(char **av)
+// {
+// 	int	i;
+// 	int len;
 
-	i = 1;
-	while(av[i])
-	{
-		len = ft_strlen(av[i]);
-		if (!(len < 10
-		|| (len == 10 && ft_strncmp(av[i], "2147483647", 10) <= 0)
-		|| (len == 11 && ft_strncmp(av[i], "-2147483648", 11) <= 0)))
-			ft_error();
-		i++;
-	}
-}
+// 	i = 1;
+// 	while(av[i])
+// 	{
+// 		len = ft_strlen(av[i]);
+// 		if (!(len < 10
+// 		|| (len == 10 && ft_strncmp(av[i], "2147483647", 10) <= 0)
+// 		|| (len == 11 && ft_strncmp(av[i], "-2147483648", 11) <= 0)))
+// 			ft_error();
+// 		i++;
+// 	}
+// }
 void ft_parsing(char **av)
 {
 	int	i;
@@ -35,7 +35,7 @@ void ft_parsing(char **av)
 	int	tmp;
 
 	i = 1;
-	ft_check_lenght(av);
+	//ft_check_lenght(av);
 	while (av[i])
 	{
 		j = i + 1;

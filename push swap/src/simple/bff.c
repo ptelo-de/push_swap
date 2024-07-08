@@ -91,7 +91,7 @@ void    ft_algorithm(t_store *s)
             ft_ra(s);
     }
     ft_sort_5(s);
-     //1 is passing when it should not, need to sort stack b
+   //1 is passing when it should not, need to sort stack b
     while(s->head_b)
     {
     ft_setindex(s);

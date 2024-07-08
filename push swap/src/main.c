@@ -52,12 +52,33 @@ void ft_print_(t_store *store)
 		store->head_b = store->head_b->next;
 	}
 }
+void ft_transfertosort(t_store *s)
+{
+	int stacksize;
+
+	stacksize = ft_stacksize(s->head_a);
+	if (stacksize == 1 || order_check_a(s))
+		return;
+	else if(stacksize == 2)
+	{
+		if (s->tail_a->value > s->head_a->value)
+			return;
+		else
+			ft_swap(s, 'a', 0);
+	}
+	else if (stacksize == 3)
+		ft_sort_3(s, 'a', 0);
+	else if (stacksize == 4)
+		ft_sort_4(s);
+	else
+		ft_algorithm(s);
+
+}
 int	main(int ac, char **av)
 {
 	t_stack *free_a;
 	t_stack *free_b;
 	t_store	*store;
-	//t_store *paux;
 
 	if (ac == 1)
 		exit(1);
@@ -65,16 +86,15 @@ int	main(int ac, char **av)
 		ft_error();
 	ft_parsing(av);
 	store = ft_init_store(ac, av);
-	ft_algorithm(store);
+	ft_transfertosort(store);
 	free_a = store->head_a;
 	free_b = store->head_b;
 	ft_print_(store);
-	
 	ft_free_stack(free_a);
 	ft_free_stack(free_b);
 	free(store);
 }
-//  ./push_swap "1 2 3 4" "2 3 45" , invalid 
+// ./push_swap "1 2 3 4" "2 3 45" , invalid 
 //  ./push_swap 1 2 3 4, valid, list of integers? 
 // no because sizeof(av[1]) == 8 bytes, it is an array of strings
 // ARG="1 2 3 4", valid and counting 4 , echo $ARG

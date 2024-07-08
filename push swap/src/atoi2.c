@@ -35,11 +35,13 @@ int	ft_atoi2(const char *nptr)
 	}
 	while (nptr[i] <= '9' && nptr[i] >= '0')
 	{
+		if (nb*10 < nb)
+			ft_error();
 		nb = 10 * nb + (nptr[i] - 48);
 		i++;
 	}
 	nb = nb * sign;
-	if (nptr[i])
+	if (nptr[i] || nb > 2147483647 || nb < -2147483648)
 		ft_error();
 	return (nb);
 }

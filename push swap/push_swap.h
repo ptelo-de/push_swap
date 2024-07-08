@@ -38,6 +38,8 @@ typedef struct s_store
 }				t_store;
 
 #endif
+//main.c
+void ft_transfertosort(t_store *s);
 // parsing
 void	ft_error(void);
 void	ft_check_lenght(char **av);

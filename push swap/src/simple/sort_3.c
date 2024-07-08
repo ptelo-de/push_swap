@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-//goes through an auxiiar head_a and returns 1 if stack is not sorted
+//goes through an auxiiar head_a and returns 0 if stack is not sorted
 int	order_check_a(t_store *data)
 {
 	int		i;
@@ -23,11 +23,11 @@ int	order_check_a(t_store *data)
 	while (current->next)
 	{
 		if (current->value >= current->next->value)
-			return (1);
+			return (0);
 		current = current->next;
 		i++;
 	}
-	return (0);
+	return (1);
 }
 //goes through an auxiiar head_b and returns 1 if stack is not sorted
 int	order_check_b(t_store *data)
@@ -110,7 +110,8 @@ void ft_sort_5(t_store *s)
 	fou = s->tail_a->prev->value;
 	fif = s->tail_a->value;
 	if ((sec < s->head_a->value) && (sec < thi) && (sec < fou) && (sec < fif))
-		ft_ra(s);
+	{ft_ra(s);
+	}//linha onde segfault
 	else if ((thi < s->head_a->value) && (thi < sec) && (thi < fou) && (thi < fif))
 	{
 		ft_ra(s);
