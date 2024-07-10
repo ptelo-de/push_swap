@@ -41,15 +41,20 @@ void ft_print_rev(t_store *s)
 // }
 void ft_print_(t_store *store)
 {
-	while (store->head_a)
+	t_stack *tmpa;
+	t_stack *tmpb;
+
+	tmpa = store->head_a;
+	tmpb = store->head_b;	
+	while (tmpa)
 	{
-		printf("stack a: index: %d bff: %d value : %d\n",store->head_a->index, store->head_a->bff_index, store->head_a->value);
-		store->head_a = store->head_a->next;
+		ft_printf("stack a: index: %d bff: %d value : %d\n",tmpa->index, tmpa->bff_index, tmpa->value);
+		tmpa = tmpa->next;
 	}
-		while (store->head_b)
+		while (tmpb)
 	{
-		printf("stack b: index : %d bff: %d cost: %d value : %d\n",store->head_b->index, store->head_b->bff_index,store->head_b->cost, store->head_b->value);
-		store->head_b = store->head_b->next;
+		ft_printf("stack b: index : %d bff: %d cost: %d value : %d\n",tmpb->index, tmpb->bff_index,tmpb->cost, tmpb->value);
+		tmpb = tmpb->next;
 	}
 }
 void ft_transfertosort(t_store *s)

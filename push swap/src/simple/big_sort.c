@@ -16,55 +16,32 @@
 void	ft_rot_a(t_store *s, int bff_index)
 {
 	int	lsize;
-	int	i;
-	int	j;
 
 	lsize = ft_stacksize(s->head_a);
-	i = lsize - bff_index - 1; // 5 - 
-	j = bff_index;
-	if (i < j)
+	ft_printf("calculei o lsize no rota\n");
+	if (s->head_a->index != bff_index)
 	{
-		while (i > 0)
-		{
-			ft_rra(s);
-			i--;
-		}
-	}
-	else
-	{
-		while (j > 0)
-		{
+		if(bff_index <= lsize/2)
 			ft_ra(s);
-			j--;
-		}
+		else
+			ft_rra(s);
 	}
 }
 //makes so that the chosen element of atack b is on top of stack b
 void	ft_rot_b(t_store *s, int index)
 {
 	int	lsize;
-	int	i;
-	int	j;
 
-	lsize = ft_stacksize(s->head_a);
-	i = lsize - index - 1;
-	j = index;
-	if (i < j)
+	lsize = ft_stacksize(s->head_b);
+
+	if (s->head_b->index != index)
 	{
-		while (i > 0)
-		{
-			ft_rrb(s);
-			i--;
-		}
-	}
-	else
-	{
-		while (j > 0)
-		{
+		if(index <= lsize/2)
 			ft_rb(s);
-			j--;
-		}
+		else
+			ft_rrb(s);
 	}
+
 }
 
 void	ft_sort_top(t_store *s)
@@ -72,8 +49,9 @@ void	ft_sort_top(t_store *s)
 	t_stack	*tmp;
 
 	tmp = ft_nodebyindex(ft_choosebest(s), s->head_b);
-	//printf("temp form sort top: %d\n", tmp->value);
+	ft_printf("temp form sort top: %d\n", tmp->value);
 	ft_rot_a(s, tmp->bff_index);
+	ft_printf("sai do rota\n");
 	ft_rot_b(s, tmp->index);
 	//ft_print_(s);
 	ft_pa(s);

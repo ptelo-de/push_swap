@@ -29,7 +29,8 @@ void ft_swap(t_store *s, char a, char b)
 		s->head_a = old_head->prev;
 		s->head_a->prev = NULL;
 		s->head_a->next = old_head;
-		write(1, "sa\n", 3);
+		ft_printf("sa\n");
+		ft_print_(s);
 	}
 	if(b == 'b')
 	{
@@ -39,7 +40,8 @@ void ft_swap(t_store *s, char a, char b)
 		s->head_b = old_head->prev;
 		s->head_b->prev = NULL;
 		s->head_b->next = old_head;
-		write(1, "sb\n", 3);
+		ft_printf("sb\n");
+		ft_print_(s);
 	}
 	
 	return ;
@@ -69,7 +71,8 @@ void	ft_pb(t_store *s)
 		s->head_b->next = NULL;
 		s->tail_b = s->head_b;
 	}
-	write(1, "pb\n", 3);
+	ft_printf("pb\n");
+	ft_print_(s);
 
 }
 //tested for last node
@@ -91,7 +94,8 @@ void	ft_pa(t_store *s)
 		free(s->head_b);
 		s->head_b = NULL;
 	}
-	write(1, "pa\n", 3);
+	ft_printf("pa\n");
+	ft_print_(s);
 }
 void ft_ra(t_store *s)
 {
@@ -101,7 +105,8 @@ void ft_ra(t_store *s)
 	s->head_a->prev = NULL;
 	s->tail_a = s->tail_a->next;
 	s->tail_a->next = NULL;
-	write(1 , "ra\n", 3);
+	ft_printf("ra\n");
+	ft_print_(s);	
 }
 void ft_rb(t_store *s)
 {
@@ -111,18 +116,21 @@ void ft_rb(t_store *s)
 	s->head_b->prev = NULL;
 	s->tail_b = s->tail_b->next;
 	s->tail_b->next = NULL;
-	write(1, "rb\n", 3);
+	ft_printf("rb\n");
+	ft_print_(s);
 }
 void ft_rra(t_store *s)
 {
-	
 	s->head_a->prev = s->tail_a;
-	s->tail_a->next = s->head_a;
+	s->head_a->prev->next = s->head_a;
+	//s->tail_a->next = s->head_a;
 	s->head_a = s->head_a->prev; 
 	s->tail_a = s->tail_a->prev;
-	s->tail_a->next = NULL;
+	s->tail_a->next = NULL; ///segfault
+	ft_printf("estou no rra\n");
 	s->head_a->prev = NULL;
-	write(1, "rra\n", 4);
+	ft_printf("rra\n");
+	ft_print_(s);
 }
 void ft_rrb(t_store *s)
 {
@@ -133,5 +141,6 @@ void ft_rrb(t_store *s)
 	s->tail_b = s->tail_b->prev;
 	s->tail_b->next = NULL;
 	s->head_b->prev = NULL;
-	write(1, "rrb\n", 4);
+	ft_printf("rrb\n");
+	ft_print_(s);
 }

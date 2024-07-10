@@ -95,9 +95,13 @@ void    ft_algorithm(t_store *s)
     while(s->head_b)
     {
     ft_setindex(s);
+    ft_printf("saiu do set index\n");
     ft_setbf(s);
+    ft_printf("saiu do setbf\n");  
     ft_setcost(s);
+    ft_printf("saiu do setcost\n");  
     ft_sort_top(s);
+    ft_printf("saiu do sortop\n");  
     ft_cleancost(s);
     }
     final_rot(s);
@@ -131,10 +135,10 @@ void ft_setcost(t_store *s)
  int ft_choosebest(t_store *s)
  {
     t_stack *tmpb;
-    t_stack *node;
+ //   t_stack *node;
     int bestcost;
     int i;
-
+	ft_printf("entrei no choosebest\n");
     tmpb = s->head_b;
     i = tmpb->index;
     bestcost = tmpb->cost;
@@ -150,17 +154,19 @@ void ft_setcost(t_store *s)
 
         tmpb = tmpb->next;
     }
-    tmpb = s->head_b;
-    while(tmpb)
-    {
-        node = ft_nodebyindex(i, s->head_b);
-        if (tmpb->cost == bestcost &&  
-        ft_nodebyindex(tmpb->bff_index, s->head_b)->value - tmpb->value < ft_nodebyindex(node->bff_index, s->head_b)->value - node->value)
-        {
-            i = tmpb->index;
-        }
-        tmpb = tmpb->next;
-    }
+    // tmpb = s->head_b;
+    // while(tmpb)
+    // {
+    //     node = ft_nodebyindex(i, s->head_b);
+    //     if (tmpb->cost == bestcost &&  
+    //     ft_nodebyindex(tmpb->bff_index, s->head_b)->value - tmpb->value < ft_nodebyindex(node->bff_index, s->head_b)->value - node->value)
+    //     {
+    //         i = tmpb->index;
+    //     }
+    //     tmpb = tmpb->next;
+    // }
 
+
+	 ft_printf("sai do choosebest\n");
     return(i);
  }
