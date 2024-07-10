@@ -96,6 +96,11 @@ void ft_cleancost(t_store *s);
 void ft_print_(t_store *store);
 int	order_check_a(t_store *data);
 int	order_check_b(t_store *data);
+void ft_print_newa(t_store *s);
+void ft_print_reva(t_store *s);
+void ft_print_newb(t_store *s);
+void ft_print_revb(t_store *s);
+
 //not mine
 void	final_rot(t_store *s);
 void	rot_last(t_store *s, int index);

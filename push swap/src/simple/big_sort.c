@@ -19,7 +19,7 @@ void	ft_rot_a(t_store *s, int bff_index)
 
 	lsize = ft_stacksize(s->head_a);
 	ft_printf("calculei o lsize no rota\n");
-	if (s->head_a->index != bff_index)
+	while(s->head_a->index != bff_index)
 	{
 		if(bff_index <= lsize/2)
 			ft_ra(s);
@@ -34,7 +34,7 @@ void	ft_rot_b(t_store *s, int index)
 
 	lsize = ft_stacksize(s->head_b);
 
-	if (s->head_b->index != index)
+	while(s->head_b->index != index)
 	{
 		if(index <= lsize/2)
 			ft_rb(s);

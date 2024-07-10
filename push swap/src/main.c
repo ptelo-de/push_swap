@@ -13,32 +13,90 @@
 #include "../push_swap.h"
 #include "stdio.h"
 
-void ft_print_rev(t_store *s)
+void ft_print_reva(t_store *s)
 {
-	while (s->tail_a)
+	t_stack *tmpa = s->tail_a;
+    ft_printf("LISTA A TAIL:");
+	tmpa = s->tail_a;
+    if (tmpa == NULL)
+    {
+        ft_printf("A lista A está vazia.\n");
+        return;
+    }
+	if (tmpa->next == NULL)
+		ft_printf("NULL0 ");
+	while (tmpa)
 	{
-		printf("stackarev: %d\n", s->tail_a->value);
-		s->tail_a = s->tail_a->prev;
+		ft_printf("%d ", tmpa->value);
+		tmpa = tmpa->prev;
 	}
-		while (s->tail_b)
-	{
-		printf("stackbrev: %d\n", s->tail_b->value);
-		s->tail_b = s->tail_b->prev;
-	}
+	if (s->head_a && s->head_a->prev == NULL)
+        ft_printf("NULL1\n");
+	
 }
-// void ft_print_(t_store *store)
-// {
-// 	while (store->head_a)
-// 	{
-// 		printf("stack a:value : %d\n", store->head_a->value);
-// 		store->head_a = store->head_a->next;
-// 	}
-// 		while (store->head_b)
-// 	{
-// 		printf("stack b:value : %d\n",store->head_b->value);
-// 		store->head_b = store->head_b->next;
-// 	}
-// }
+
+void ft_print_revb(t_store *s)
+{
+	t_stack *tmpb = s->tail_b;
+    ft_printf("LISTA B TAIL:");
+	tmpb = s->tail_b;
+    if (tmpb == NULL)
+    {
+        ft_printf("A lista B está vazia.\n");
+        return;
+    }
+	if (tmpb->next == NULL)
+		ft_printf("NULL0 ");
+	while (tmpb)
+	{
+		ft_printf("%d ", tmpb->value);
+		tmpb = tmpb->prev;
+	}
+	if (s->head_b && s->head_b->prev == NULL)
+        ft_printf("NULL1\n");
+	
+}
+void ft_print_newa(t_store *s)
+{
+	t_stack *tmpa = s->head_a;
+    ft_printf("LISTA A HEAD:");
+	tmpa = s->head_a;
+    if (tmpa == NULL)
+    {
+        ft_printf("A lista A está vazia.\n");
+        return;
+    }
+	if (tmpa->prev == NULL)
+		ft_printf("NULL0 ");
+	while (tmpa)
+	{
+		ft_printf("%d ", tmpa->value);
+		tmpa = tmpa->next;
+	}
+	if (s->tail_a && s->tail_a->next == NULL)
+        ft_printf("NULL1\n");
+}
+void ft_print_newb(t_store *s)
+{
+	t_stack *tmpb = s->head_b;
+    ft_printf("LISTA B HEAD:");
+	tmpb = s->head_b;
+    if (tmpb == NULL)
+    {
+        ft_printf("A lista B está vazia.\n");
+        return;
+    }
+	if (tmpb->prev == NULL)
+		ft_printf("NULL0 ");
+	while (tmpb)
+	{
+		ft_printf("%d ", tmpb->value);
+		tmpb = tmpb->next;
+	}
+	if (s->tail_b && s->tail_b->next == NULL)
+        ft_printf("NULL1\n");
+}
+
 void ft_print_(t_store *store)
 {
 	t_stack *tmpa;
@@ -105,3 +163,4 @@ int	main(int ac, char **av)
 // ARG="1 2 3 4", valid and counting 4 , echo $ARG
 // arguments to the stack passed as bash variable
 // stack : 5 6 10 2 9 3 1 7 8 4
+//stack d3333 : 6 52 3 2 7 5 4 21 1

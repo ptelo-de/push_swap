@@ -91,6 +91,7 @@ void    ft_algorithm(t_store *s)
             ft_ra(s);
     }
     ft_sort_5(s);
+    ft_printf("saiu do sort 5\n");
    //1 is passing when it should not, need to sort stack b
     while(s->head_b)
     {
