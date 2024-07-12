@@ -44,10 +44,10 @@ void ft_swap(t_store *s)
 	// ft_printf("heada.next %d\n", s->head_a->next->value);
 //	exit(0);
 		ft_printf("sa\n");
-		ft_print_newa(s);
-		ft_print_reva(s);
-		ft_print_newb(s);
-		ft_print_revb(s);
+		// ft_print_newa(s);
+		// ft_print_reva(s);
+		// ft_print_newb(s);
+		// ft_print_revb(s);
 }
 //Push top stack a to top stack b
 //tested for last node printing with next and  with prev
@@ -75,19 +75,19 @@ void	ft_pb(t_store *s)
 		s->tail_b = s->head_b;
 	}
 	ft_printf("pb\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
+	// ft_print_newa(s);
+	// ft_print_reva(s);
+	// ft_print_newb(s);
+	// ft_print_revb(s);
 
 }
 void ft_paux(t_store *s)
 {
-	ft_printf("estou no pa\n");
+	//ft_printf("estou no pa\n");
 	s->head_a->prev = s->head_b;
 	s->head_b  = s->head_b->next;
-	ft_printf("heada %d headb NULL%d \n", s->head_a->value, s->head_b);
-	ft_printf("heada.prev %d\n", s->head_a->prev->value);
+	// ft_printf("heada %d headb NULL%d \n", s->head_a->value, s->head_b);
+	// ft_printf("heada.prev %d\n", s->head_a->prev->value);
 	s->head_a->prev->next = s->head_a;
 	s->head_a = s->head_a->prev;
 	s->tail_b = NULL;
@@ -117,10 +117,10 @@ void	ft_pa(t_store *s)
 	//ft_printf("heada.prev NULL%d headb.prev NULL%d \n", s->head_a->prev, s->head_b->prev);
 //ft_printf("heada.next %d headbnext NULL%d \n", s->head_a->next->value, s->head_b->next);
 	ft_printf("pa\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
+	// ft_print_newa(s);
+	// ft_print_reva(s);
+	// ft_print_newb(s);
+	// ft_print_revb(s);
 }
 void ft_ra(t_store *s)
 {
@@ -131,10 +131,10 @@ void ft_ra(t_store *s)
 	s->tail_a = s->tail_a->next;
 	s->tail_a->next = NULL;
 	ft_printf("ra\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
+	// ft_print_newa(s);
+	// ft_print_reva(s);
+	// ft_print_newb(s);
+	// ft_print_revb(s);
 }
 void ft_rb(t_store *s)
 {
@@ -145,28 +145,28 @@ void ft_rb(t_store *s)
 	s->tail_b = s->tail_b->next;
 	s->tail_b->next = NULL;
 	ft_printf("rb\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
+	// ft_print_newa(s);
+	// ft_print_reva(s);
+	// ft_print_newb(s);
+	// ft_print_revb(s);
 }
 void ft_rra(t_store *s)
 {
-	ft_printf("tail value: %d\n", s->tail_a->value);
-	ft_printf("tail prev value: %d\n", s->tail_a->prev->value);
+	//ft_printf("tail value: %d\n", s->tail_a->value);
+	//ft_printf("tail prev value: %d\n", s->tail_a->prev->value);
 	s->head_a->prev = s->tail_a;
 	s->head_a->prev->next = s->head_a;
 	//s->tail_a->next = s->head_a;
 	s->head_a = s->head_a->prev; 
 	s->tail_a = s->tail_a->prev;
 	s->tail_a->next = NULL; ///segfault
-	ft_printf("estou no rra\n");
+	//ft_printf("estou no rra\n");
 	s->head_a->prev = NULL;
 	ft_printf("rra\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
+	// ft_print_newa(s);
+	// ft_print_reva(s);
+	// ft_print_newb(s);
+	// ft_print_revb(s);
 }
 void ft_rrb(t_store *s)
 {
@@ -178,8 +178,8 @@ void ft_rrb(t_store *s)
 	s->tail_b->next = NULL;
 	s->head_b->prev = NULL;
 	ft_printf("rrb\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
+	// ft_print_newa(s);
+	// ft_print_reva(s);
+	// ft_print_newb(s);
+	// ft_print_revb(s);
 }

@@ -91,18 +91,18 @@ void    ft_algorithm(t_store *s)
             ft_ra(s);
     }
     ft_sort_5(s);
-    ft_printf("saiu do sort 5\n");
+    //ft_printf("saiu do sort 5\n");
    //1 is passing when it should not, need to sort stack b
     while(s->head_b)
     {
     ft_setindex(s);
-    ft_printf("saiu do set index\n");
+    //ft_printf("saiu do set index\n");
     ft_setbf(s);
-    ft_printf("saiu do setbf\n");  
+    //ft_printf("saiu do setbf\n");  
     ft_setcost(s);
-    ft_printf("saiu do setcost\n");  
+   // ft_printf("saiu do setcost\n");  
     ft_sort_top(s);
-    ft_printf("saiu do sortop\n");  
+    //ft_printf("saiu do sortop\n");  
     ft_cleancost(s);
     }
     final_rot(s);
@@ -139,7 +139,7 @@ void ft_setcost(t_store *s)
  //   t_stack *node;
     int bestcost;
     int i;
-	ft_printf("entrei no choosebest\n");
+	//ft_printf("entrei no choosebest\n");
     tmpb = s->head_b;
     i = tmpb->index;
     bestcost = tmpb->cost;
@@ -168,6 +168,6 @@ void ft_setcost(t_store *s)
     // }
 
 
-	 ft_printf("sai do choosebest\n");
+	 //ft_printf("sai do choosebest\n");
     return(i);
  }

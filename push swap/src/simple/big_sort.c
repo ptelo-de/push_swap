@@ -18,7 +18,7 @@ void	ft_rot_a(t_store *s, int bff_index)
 	int	lsize;
 
 	lsize = ft_stacksize(s->head_a);
-	ft_printf("calculei o lsize no rota\n");
+	//ft_printf("calculei o lsize no rota\n");
 	while(s->head_a->index != bff_index)
 	{
 		if(bff_index <= lsize/2)
@@ -49,9 +49,9 @@ void	ft_sort_top(t_store *s)
 	t_stack	*tmp;
 
 	tmp = ft_nodebyindex(ft_choosebest(s), s->head_b);
-	ft_printf("temp form sort top: %d\n", tmp->value);
+	//ft_printf("temp form sort top: %d\n", tmp->value);
 	ft_rot_a(s, tmp->bff_index);
-	ft_printf("sai do rota\n");
+	//ft_printf("sai do rota\n");
 	ft_rot_b(s, tmp->index);
 	//ft_print_(s);
 	ft_pa(s);

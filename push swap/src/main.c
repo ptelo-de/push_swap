@@ -153,7 +153,7 @@ int	main(int ac, char **av)
 	ft_transfertosort(store);
 	free_a = store->head_a;
 	free_b = store->head_b;
-	ft_print_(store);
+	//ft_print_(store);
 	ft_free_stack(free_a);
 	ft_free_stack(free_b);
 	free(store);
