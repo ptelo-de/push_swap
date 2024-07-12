@@ -128,10 +128,10 @@ void ft_transfertosort(t_store *s)
 		if (s->tail_a->value > s->head_a->value)
 			return;
 		else
-			ft_swap(s, 'a', 0);
+			ft_swap(s);
 	}
 	else if (stacksize == 3)
-		ft_sort_3(s, 'a', 0);
+		ft_sort_3(s);
 	else if (stacksize == 4)
 		ft_sort_4(s);
 	else

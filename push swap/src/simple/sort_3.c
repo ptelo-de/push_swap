@@ -48,28 +48,24 @@ int	order_check_b(t_store *data)
 }
 //tested: sorting stack a in ascending order and descending order (b)
 //not protected for seg fault
-void ft_sort_3(t_store *s, char a, char b)
+void ft_sort_3(t_store *s)
 {
-
-    if (a == 'a')
-    {
         if (s->head_a->value > s->head_a->next->value && s->head_a->value > s->tail_a->value)
 		    ft_ra(s);
         if (s->head_a->next->value > s->tail_a->value)
             ft_rra(s);
         if (s->head_a->value > s->head_a->next->value)
-            ft_swap(s, a, 0);
+            ft_swap(s);
 
-    }
-    if (b == 'b')
-    {
-        if (s->head_b->value < s->head_b->next->value && s->head_b->value < s->tail_a->value)
-		    ft_rb(s);
-        if (s->head_b->next->value < s->tail_b->value)
-            ft_rrb(s);
-        if (s->head_b->value < s->head_b->next->value)
-            ft_swap(s, 0, b);
-    }
+    // if (b == 'b')
+    // {
+    //     if (s->head_b->value < s->head_b->next->value && s->head_b->value < s->tail_a->value)
+	// 	    ft_rb(s);
+    //     if (s->head_b->next->value < s->tail_b->value)
+    //         ft_rrb(s);
+    //     if (s->head_b->value < s->head_b->next->value)
+    //         ft_swap(s, 0, b);
+    // }
 }
 //sorts head a in ascending order, 
 //only woks for stack a with 4 elements
@@ -92,7 +88,7 @@ void ft_sort_4(t_store *s)
 	else if (fou < s->head_a->value && fou < sec && fou < thi)
 		ft_rra(s);
 	ft_pb(s);
-	ft_sort_3(s, 'a', 0);
+	ft_sort_3(s);
 	ft_pa(s);
 }
 
@@ -110,8 +106,7 @@ void ft_sort_5(t_store *s)
 	fou = s->tail_a->prev->value;
 	fif = s->tail_a->value;
 	if ((sec < s->head_a->value) && (sec < thi) && (sec < fou) && (sec < fif))
-	{ft_ra(s);
-	}//linha onde segfault
+		ft_ra(s);
 	else if ((thi < s->head_a->value) && (thi < sec) && (thi < fou) && (thi < fif))
 	{
 		ft_ra(s);

@@ -18,64 +18,36 @@
 // Do nothing if there is only one or no elements.
 
 //decided to not protect when stack has only one node
-void ft_swap(t_store *s, char a, char b)
+void ft_swap(t_store *s)
 {
 	t_stack	*old_head;
-	if(a == 'a')
-	{
-		s->head_a->prev = s->head_a->next;
-	ft_printf("heada %d\n", s->head_a->value);
-	ft_printf("heada.prev %d\n", s->head_a->prev->value);
+
+		old_head = s->head_a;
 		s->head_a = s->head_a->next;
-		s->head_a->next = s->head_a->prev->next;
-	ft_printf("heada %d\n", s->head_a->value);
-	ft_printf("heada.prev %d\n", s->head_a->prev->value);
+		old_head->next = s->head_a->next;
+		s->head_a->next = old_head;
+		if(s->head_a->next->next)
+		{
+			s->head_a->next->next->prev = s->head_a->next;
+			s->head_a->next->prev = s->head_a;
+		}
+		else
+		{
+			s->head_a->next->prev = s->head_a;
+			s->tail_a = s->head_a->next;
+
+		}
 		s->head_a->prev = NULL;
-	ft_printf("heada %d\n", s->head_a->value);
-	ft_printf("heada.prev %d\n", s->head_a->prev);
-	ft_printf("heada.next %d\n", s->head_a->next->value);
-	//exit(0);
+		
+	// ft_printf("heada.prev %d\n", s->head_a->prev->value);
+	// ft_printf("heada %d\n", s->head_a->value);
+	// ft_printf("heada.next %d\n", s->head_a->next->value);
+//	exit(0);
 		ft_printf("sa\n");
 		ft_print_newa(s);
 		ft_print_reva(s);
 		ft_print_newb(s);
 		ft_print_revb(s);
-/*
-		old_head = s->head_a;
-		old_head->prev = s->head_a->next;
-		old_head->next = s->head_a->next->next;
-		s->head_a = old_head->prev;
-		s->head_a->prev = NULL;
-		s->head_a->next = old_head;
-
-		4 2 5
-
-		2 4 5  
-		head->prev = head->next
-		head -> head->next;
-		head ->prev = NULL
-
-
-		head->next-> head->prev;		
-		head->prev ->NULL;
-*/
-	}
-	if(b == 'b')
-	{
-		old_head = s->head_b;
-		old_head->prev = s->head_b->next;
-		old_head->next = s->head_b->next->next;
-		s->head_b = old_head->prev;
-		s->head_b->prev = NULL;
-		s->head_b->next = old_head;
-		ft_printf("sb\n");
-	ft_print_newa(s);
-	ft_print_reva(s);
-	ft_print_newb(s);
-	ft_print_revb(s);
-	}
-	
-	return ;
 }
 //Push top stack a to top stack b
 //tested for last node printing with next and  with prev

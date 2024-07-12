@@ -65,13 +65,13 @@ t_store	*ft_init_store(int ac, char **av);
 //operations
 void	ft_pb(t_store *s);
 void	ft_pa(t_store *s);
-void	ft_swap(t_store *s, char a, char b);
+void	ft_swap(t_store *s);
 void ft_ra(t_store *s);
 void ft_rb(t_store *s);
 void ft_rra(t_store *s);
 void ft_rrb(t_store *s);
 //sort 3
-void ft_sort_3(t_store *s, char a, char b);
+void ft_sort_3(t_store *s);
 
 //sort_4
 void ft_sort_4(t_store *s);
