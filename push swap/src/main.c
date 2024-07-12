@@ -163,4 +163,4 @@ int	main(int ac, char **av)
 // ARG="1 2 3 4", valid and counting 4 , echo $ARG
 // arguments to the stack passed as bash variable
 // stack : 5 6 10 2 9 3 1 7 8 4
-//stack d3333 : 6 52 3 2 7 5 4 21 1
+//stack d3333 : 6 52 10 3 2 7 5 4 21 1
