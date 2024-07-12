@@ -103,7 +103,8 @@ void ft_print_(t_store *store)
 	t_stack *tmpb;
 
 	tmpa = store->head_a;
-	tmpb = store->head_b;	
+	tmpb = store->head_b;
+	ft_printf("\n");	
 	while (tmpa)
 	{
 		ft_printf("stack a: index: %d bff: %d value : %d\n",tmpa->index, tmpa->bff_index, tmpa->value);
@@ -164,3 +165,4 @@ int	main(int ac, char **av)
 // arguments to the stack passed as bash variable
 // stack : 5 6 10 2 9 3 1 7 8 4
 //stack d3333 : 6 52 10 3 2 7 5 4 21 1
+//./push_swap 1 -222222 -444 -5 1222255 66 777

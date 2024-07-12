@@ -100,6 +100,7 @@ void ft_paux(t_store *s)
 	ft_printf("heada.prev %d\n", s->head_a->prev->value);
 	s->head_a->prev->next = s->head_a;
 	s->head_a = s->head_a->prev;
+	s->tail_b = NULL;
 	ft_printf("pa\n");
 
 }
@@ -113,26 +114,18 @@ void	ft_pa(t_store *s)
 	}
 	s->head_a->prev = s->head_b;
 	s->head_b = s->head_b->next;
-	ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
-	ft_printf("heada.prev %d headb.prev NULL%d \n", s->head_a->prev->value, s->head_b->prev);
+	//ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
+	//ft_printf("heada.prev %d headb.prev NULL%d \n", s->head_a->prev->value, s->head_b->prev);
 	s->head_a->prev->next = s->head_a;
-	ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
-	ft_printf("heada.prev %d headb.prev NULL%d \n", s->head_a->prev->value, s->head_b->prev);
+	//ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
+	//ft_printf("heada.prev %d headb.prev NULL%d \n", s->head_a->prev->value, s->head_b->prev);
 	s->head_a = s->head_a->prev;
-	ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
-	ft_printf("heada.prev NULL%d headb.prev NULL%d \n", s->head_a->prev, s->head_b->prev);
+	//ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
+	//ft_printf("heada.prev NULL%d headb.prev NULL%d \n", s->head_a->prev, s->head_b->prev);
 	s->head_b->prev = NULL;
-ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
-	ft_printf("heada.prev NULL%d headb.prev NULL%d \n", s->head_a->prev, s->head_b->prev);
-ft_printf("heada.next %d headbnext NULL%d \n", s->head_a->next->value, s->head_b->next);
-	// s->head_a->prev = s->head_b;
-	// s->head_a = s->head_a->prev;
-	// ft_printf("estou no pa\n");
-	// s->head_a->prev->next = s->head_a; //segfault 
-	// ft_printf("estou no pa\n");
-	// s->head_b =s->head_b->next;
-	// s->head_b->prev = NULL;
-	//exit(0);
+//ft_printf("heada %d headb %d \n", s->head_a->value, s->head_b->value);
+	//ft_printf("heada.prev NULL%d headb.prev NULL%d \n", s->head_a->prev, s->head_b->prev);
+//ft_printf("heada.next %d headbnext NULL%d \n", s->head_a->next->value, s->head_b->next);
 	ft_printf("pa\n");
 	ft_print_newa(s);
 	ft_print_reva(s);
