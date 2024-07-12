@@ -24,15 +24,22 @@ void ft_swap(t_store *s, char a, char b)
 	if(a == 'a')
 	{
 		s->head_a->prev = s->head_a->next;
-		s->head_a->prev->next = s->head_a;
-		s->head_a->next = s->head_a->next->next;
-		s->head_a->next->prev = s->head_a;
+	ft_printf("heada %d\n", s->head_a->value);
+	ft_printf("heada.prev %d\n", s->head_a->prev->value);
+		s->head_a = s->head_a->next;
+		s->head_a->next = s->head_a->prev->next;
+	ft_printf("heada %d\n", s->head_a->value);
+	ft_printf("heada.prev %d\n", s->head_a->prev->value);
+		s->head_a->prev = NULL;
+	ft_printf("heada %d\n", s->head_a->value);
+	ft_printf("heada.prev %d\n", s->head_a->prev);
+	ft_printf("heada.next %d\n", s->head_a->next->value);
+	//exit(0);
 		ft_printf("sa\n");
 		ft_print_newa(s);
 		ft_print_reva(s);
 		ft_print_newb(s);
 		ft_print_revb(s);
-		exit(0);
 /*
 		old_head = s->head_a;
 		old_head->prev = s->head_a->next;
@@ -40,6 +47,17 @@ void ft_swap(t_store *s, char a, char b)
 		s->head_a = old_head->prev;
 		s->head_a->prev = NULL;
 		s->head_a->next = old_head;
+
+		4 2 5
+
+		2 4 5  
+		head->prev = head->next
+		head -> head->next;
+		head ->prev = NULL
+
+
+		head->next-> head->prev;		
+		head->prev ->NULL;
 */
 	}
 	if(b == 'b')

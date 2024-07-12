@@ -87,7 +87,6 @@ void	final_rot(t_store *s)
 	t_stack	*tmp;
 	int		min;
 	int		min_index;
-
 	min = INT_MAX;
 	ft_setindex(s);
 	tmp = s->head_a;
@@ -100,32 +99,34 @@ void	final_rot(t_store *s)
 		}
 		tmp = tmp->next;
 	}
-	rot_last(s, min_index);
+	ft_rot_a(s, min_index);
+	
 }
 //not mine
-void	rot_last(t_store *s, int index)
-{
-	int	lsize;
-	int	i;
-	int	j;
+// void	rot_last(t_store *s, int index)
+// {
+// 	int	lsize;
+// 	int	i;
+// 	int	j;
 
-	lsize = ft_stacksize(s->head_a);
-	i = lsize - index - 1;
-	j = index;
-	if (i < j)
-	{
-		while (i > 0)
-		{
-			ft_rra(s);
-			i--;
-		}
-	}
-	else
-	{
-		while (j > 0)
-		{
-			ft_ra(s);
-			j--;
-		}
-	}
-}
+// 	lsize = ft_stacksize(s->head_a);
+// 	i = lsize - index - 1;
+// 	j = index;
+// ft_printf("estou no rotlast\n");
+// 	if (i < j)
+// 	{
+// 		while (i > 0)
+// 		{
+// 			ft_rra(s);
+// 			i--;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		while (j > 0)
+// 		{
+// 			ft_ra(s);
+// 			j--;
+// 		}
+// 	}
+// }
