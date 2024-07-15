@@ -153,6 +153,7 @@ int	main(int ac, char **av)
 	ft_transfertosort(store);
 	free_a = store->head_a;
 	free_b = store->head_b;
+	//ft_printf("sai do algoritmo estou na main\n");
 	//ft_print_(store);
 	ft_free_stack(free_a);
 	ft_free_stack(free_b);
@@ -166,3 +167,4 @@ int	main(int ac, char **av)
 // stack : 5 6 10 2 9 3 1 7 8 4
 //stack d3333 : 6 52 10 3 2 7 5 4 21 1
 //./push_swap 1 -222222 -444 -5 1222255 66 777
+//81 15 14 16 20 17 54 12 97 42 67 71 26 66 46 11 3 62 65 31 50 25 44 51 13 85 91 32 28 21 6 43 7 35 29 86 41 64 10 92 2 47 36 95 4 94 98 59 39 45 19 40 87 8 60 61 83 57 89 5 55 82 38 70 9 37 78 49 34 77 18 22 73 33 23 99 63 52 72 48 75 58 84 96 90 30 88 79 56 93 69 53 100 24 80 27 76 74 68 1 

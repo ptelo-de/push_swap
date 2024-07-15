@@ -138,7 +138,7 @@ void ft_ra(t_store *s)
 }
 void ft_rb(t_store *s)
 {
-	//s->head_b->prev = s->tail_b;
+	s->head_b->prev = s->tail_b;
 	s->tail_b->next = s->head_b;
 	s->head_b = s->head_b->next;
 	s->head_b->prev = NULL;
