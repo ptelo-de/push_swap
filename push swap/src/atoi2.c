@@ -25,6 +25,8 @@ int	ft_atoi2(const char *nptr)
 	nb = 0;
 	i = 0;
 	sign = 1;
+	if(!nptr[0])
+		ft_error();
 	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32))
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
