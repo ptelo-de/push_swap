@@ -30,7 +30,7 @@ CFLAGS			= -Wall -Wextra -Werror
  
 $(NAME): $(OBJ)
 	make bonus -C libft/
-	${CC} ${FLAGS} ${OBJ} -o ${NAME} -L ./libft -lft
+	${CC} ${CFLAGS} ${OBJ} -o ${NAME} -L ./libft -lft
  
 clean:
 	$(RM) $(OBJ)

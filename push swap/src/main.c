@@ -148,7 +148,7 @@ int	main(int ac, char **av)
 		exit(1);
 	if (ac == 2 && !av[1][0]) // protects only for ""
 		ft_error();
-	ft_printf("aqui(%s)", av[4]);
+	//ft_printf("aqui(%s)", av[4]);
 	//exit(0);
 	ft_parsing(av);
 	store = ft_init_store(ac, av);
