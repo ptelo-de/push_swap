@@ -6,26 +6,21 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:13:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/16 21:03:36 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/09 16:22:22 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-//calculates the number an atribute can be translated
-//does not allow buffer overflow or returning the number 
+// calculates the number an atribute can be translated
+// does not allow buffer overflow or returning the number
 // if trash values follow the digit part.
-
-int	ft_atoi2(const char *nptr)
+int	ft_atoi2(const char *nptr,	int i, int sign)
 {
 	long long	nb;
-	int	i;
-	int	sign;
 
 	nb = 0;
-	i = 0;
-	sign = 1;
-	if(!nptr[0])
+	if (!nptr[0])
 		ft_error();
 	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32))
 		i++;
@@ -37,7 +32,7 @@ int	ft_atoi2(const char *nptr)
 	}
 	while (nptr[i] <= '9' && nptr[i] >= '0')
 	{
-		if (nb*10 < nb)
+		if (nb * 10 < nb)
 			ft_error();
 		nb = 10 * nb + (nptr[i] - 48);
 		i++;

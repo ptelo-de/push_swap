@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:42:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/06/22 22:52:55 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/09 16:26:27 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stack	*ft_newnode(int value)
 	node->index = 0;
 	return (node);
 }
+
 void	ft_add_back_node(t_stack **lst, t_stack *new)
 {
 	t_stack	*last;
@@ -41,6 +42,7 @@ void	ft_add_back_node(t_stack **lst, t_stack *new)
 	new->prev = last;
 	new->index = last->index + 1;
 }
+
 t_stack	*ft_lastnode(t_stack *lst)
 {
 	if (!lst)
@@ -49,6 +51,7 @@ t_stack	*ft_lastnode(t_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
+
 int	ft_stacksize(t_stack *lst)
 {
 	t_stack	*temp;
@@ -63,7 +66,7 @@ int	ft_stacksize(t_stack *lst)
 		counter++;
 		temp = temp->next;
 	}
-	return(counter);
+	return (counter);
 }
 
 void	ft_free_stack(t_stack *lst)
