@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:13:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/09 17:03:10 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/10 16:44:44 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,13 @@ void	ft_sort_4(t_store *s)
 // sorts head a in ascending order,
 // only woks for stack a with 4 elements
 
-void	ft_sort_5(t_store *s, 	int	sec, int thi)
+void	ft_sort_5(t_store *s, int sec, int thi)
 {
-
-	int fou;
+	int	fou;
 
 	fou = s->tail_a->prev->value;
-	if ((sec < s->head_a->value) && (sec < thi) && (sec < fou) && (sec < s->tail_a->value))
+	if ((sec < s->head_a->value) && (sec < thi)
+		&& (sec < fou) && (sec < s->tail_a->value))
 		ft_ra(s);
 	else if ((thi < s->head_a->value) && (thi < sec) && (thi < fou)
 		&& (thi < s->tail_a->value))
@@ -109,7 +109,8 @@ void	ft_sort_5(t_store *s, 	int	sec, int thi)
 		ft_rra(s);
 		ft_rra(s);
 	}
-	else if ((s->tail_a->value < s->head_a->value) && (s->tail_a->value < sec) && (s->tail_a->value < thi)
+	else if ((s->tail_a->value < s->head_a->value)
+		&& (s->tail_a->value < sec) && (s->tail_a->value < thi)
 		&& (s->tail_a->value < fou))
 		ft_rra(s);
 	ft_pb(s);

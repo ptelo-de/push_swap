@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:45:50 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/09 16:49:02 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/10 16:40:10 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void	ft_setcost(t_store *s)
 // is failing when bff is the same but the cost of the chosen is btter,
 //	is not qualifying swap move correctly
 
-int ft_choosebest(t_store *s)
+int	ft_choosebest(t_store *s)
 {
-	t_stack *tmpb;
-	int bestcost;
-	int i;
+	t_stack	*tmpb;
+	int		bestcost;
+	int		i;
+
 	tmpb = s->head_b;
 	i = tmpb->index;
 	bestcost = tmpb->cost;
-
 	while (tmpb)
 	{
 		if (bestcost > tmpb->cost)
@@ -59,6 +59,7 @@ int ft_choosebest(t_store *s)
 	}
 	return (i);
 }
+
 void	ft_cleancost(t_store *s)
 {
 	t_stack	*tmpb;

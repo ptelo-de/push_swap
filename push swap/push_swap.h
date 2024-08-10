@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/09 17:10:30 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/10 16:45:06 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_store
 	t_stack			*tail_a;
 	t_stack			*tail_b;
 }					t_store;
-
 
 // main.c
 void				ft_transfertosort(t_store *s);
