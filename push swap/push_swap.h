@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:51:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/10 16:45:06 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/10 21:23:51 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,17 @@ void				ft_transfertosort(t_store *s);
 
 // parsing
 void				ft_error(void);
-void				ft_check_lenght(char **av);
 int					ft_atoi2(const char *nptr, int i, int sign);
 void				ft_parsing(char **av);
 
 // init stack
 t_stack				*ft_init_stack_a(int stack_len, char **av);
 void				ft_lstparsing(t_stack *node);
-void				ft_del(int value);
 
 // list utils
 t_stack				*ft_newnode(int value);
 void				ft_add_back_node(t_stack **lst, t_stack *new);
 t_stack				*ft_lastnode(t_stack *lst);
-// void	ft_add_front_node(t_stack *lst, t_stack *new);
 int					ft_stacksize(t_stack *lst);
 void				ft_free_stack(t_stack *lst);
 
@@ -100,8 +97,5 @@ void				ft_print_newa(t_store *s);
 void				ft_print_reva(t_store *s);
 void				ft_print_newb(t_store *s);
 void				ft_print_revb(t_store *s);
-
-// not mine
 void				final_rot(t_store *s);
-void				rot_last(t_store *s, int index);
 #endif

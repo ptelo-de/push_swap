@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:13:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/09 17:04:20 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/10 21:24:47 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_setindex(t_store *s)
 	while (tmpb)
 	{
 		tmpb->index = i++;
+		tmpb->cost = 0;
 		tmpb = tmpb->next;
 	}
 }

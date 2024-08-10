@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 17:13:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/09 16:22:22 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/10 21:22:12 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_atoi2(const char *nptr,	int i, int sign)
 		ft_error();
 	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32))
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if ((nptr[i] == '+' || nptr[i] == '-') && nptr[i + 1] != 0)
 	{
 		if (nptr[i] == '-')
 			sign *= -1;
