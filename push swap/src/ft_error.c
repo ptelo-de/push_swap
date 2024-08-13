@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:15:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/09 16:33:29 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/13 12:32:38 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // indicating error.
 void	ft_error(void)
 {
-	write(2, "Error\n", 7);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 // does not lose tail or head

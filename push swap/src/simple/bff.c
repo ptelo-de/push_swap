@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:13:57 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/10 21:24:47 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/13 13:08:07 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 // tested
 int	ft_average(t_stack *stack)
 {
-	t_stack	*cpy;
-	int		sum;
-	int		l;
+	t_stack		*cpy;
+	long long	sum;
+	long long	l;
 
 	cpy = stack;
 	sum = 0;

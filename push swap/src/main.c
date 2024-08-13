@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:30:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/08/10 17:42:35 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/08/13 13:07:40 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	ft_transfertosort(t_store *s)
 	if (stacksize == 1 || order_check_a(s))
 		return ;
 	else if (stacksize == 2)
-			ft_swap(s);
+		ft_swap(s);
 	else if (stacksize == 3)
 		ft_sort_3(s);
 	else if (stacksize == 4)
